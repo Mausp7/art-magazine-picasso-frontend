@@ -1,6 +1,32 @@
+import Card from "./Card";
+import './Collection.css';
+
+const dummyData = [
+    {
+        title: 'Painting One'
+    },
+    {
+        title: 'Painting Two'
+    },
+    {
+        title: 'Painting Three'
+    },
+    {
+        title: 'Painting Four'
+    },
+    {
+        title: 'Painting Five'
+    },
+]
+
 const Collection = () => {
     return (
-        <div>Collection</div>
+        <div className="Collection">
+            {dummyData.map((p) => {
+                return <Card title={p.title}/>
+            })}
+            {/* <Card /> */}
+        </div>
     )
 }
 
