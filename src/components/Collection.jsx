@@ -1,6 +1,10 @@
+import Card from "./Card"
+
 const Collection = () => {
     return (
-        <div>Collection</div>
+        <div>
+            <Card />
+        </div>
     )
 }
 
