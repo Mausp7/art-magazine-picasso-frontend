@@ -1,5 +1,5 @@
 import Card from "./Card";
-import './Card.css';
+import './Collection.css';
 
 const dummyData = [
     {
@@ -21,7 +21,7 @@ const dummyData = [
 
 const Collection = () => {
     return (
-        <div>
+        <div className="Collection">
             {dummyData.map((p) => {
                 return <Card title={p.title}/>
             })}
