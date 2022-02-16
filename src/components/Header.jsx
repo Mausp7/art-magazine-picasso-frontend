@@ -2,11 +2,8 @@ import {Link} from "react-router-dom";
 import { useState } from "react";
 import './Header.scss';
 import logo from "../assets/picasso.jpg";
-import { TiArrowRight } from 'react-icons/ti';
+import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
-
-
-
 
 const Header = () => {
     const [headerOn, setHeaderOn] = useState(true)
@@ -19,7 +16,7 @@ const Header = () => {
 
     return (
         <header className={headerOn ? "header-on" : "header-off"} >
-            <button className="header-toggle" onClick={toggleHeader}>{headerOn ? <AiOutlineCloseCircle style={{transform: "scale(2)"}}/> : <TiArrowRight style={{transform: "scale(2.5)"}}/>}</button>
+            <button className="header-toggle" onClick={toggleHeader}>{headerOn ? <AiOutlineCloseCircle style={{transform: "scale(2)"}}/> : <GiHamburgerMenu style={{transform: "scale(2.5)"}}/>}</button>
             <div className="logo-container">
                 <img className="logo-image" src={logo} alt="Picasso portrait" />
                 <h1>Picasso</h1>

@@ -2,6 +2,7 @@ header[class^="header"] {
 	position: fixed;
 	left: 0px;
 	top: 0px;
+	z-index: 100;
 
 	display: flex;
 	flex-direction: column;
@@ -20,16 +21,16 @@ header[class^="header"] {
 	button.header-toggle {
 		position: absolute;
 		right: 0px;
-		top: 0px;
+		top: 2px;
 
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 35px;
-		height: 35px;
+		width: 40px;
+		height: 40px;
 
-		border-radius: 15px;
-		background-color: rgba(255, 255, 255, 0.5);
+		border-radius: 10px;
+		background-color: rgba(255, 255, 255, 0.8);
 
 		color: rgba(50, 50, 50, 0.9);
 
@@ -47,16 +48,28 @@ header[class^="header"] {
 			height: auto;
 
 			border-radius: 50%;
+
+			@media screen and (max-width: 800px) {
+				width: 80px;
+			}
 		}
 
 		h1 {
 			font-size: 2.6em;
 			font-weight: 400;
+
+			@media screen and (max-width: 800px) {
+				font-size: 2em;
+			}
 		}
 
 		h2 {
 			font-size: 1.2em;
 			font-weight: 400;
+
+			@media screen and (max-width: 800px) {
+				font-size: 1em;
+			}
 		}
 	}
 
@@ -84,7 +97,7 @@ header[class^="header"] {
 		align-items: center;
 
 		width: 260px;
-		height: 70px;
+		height: 60px;
 
 		margin-top: 20px;
 		background-color: #458db6;
@@ -104,6 +117,12 @@ header.header-off {
 	transform: translateX(-335px);
 
 	button.header-toggle {
-		right: -50px;
+		right: -55px;
+	}
+
+	@media screen and (max-width: 800px) {
+		button.header-toggle {
+			right: calc(-100vw + 20px);
+		}
 	}
 }
