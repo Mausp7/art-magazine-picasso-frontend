@@ -22,11 +22,16 @@ header[class^="header"] {
 		right: 0px;
 		top: 0px;
 
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		width: 35px;
 		height: 35px;
 
 		border-radius: 15px;
 		background-color: rgba(255, 255, 255, 0.5);
+
+		color: rgba(50, 50, 50, 0.9);
 
 		transition: right 500ms ease-in-out;
 	}
@@ -99,6 +104,6 @@ header.header-off {
 	transform: translateX(-335px);
 
 	button.header-toggle {
-		right: -40px;
+		right: -50px;
 	}
 }
