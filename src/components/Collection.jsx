@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Card from "./Card";
 import './Collection.css';
 
@@ -20,9 +21,12 @@ const dummyData = [
 ]
 
 const Collection = () => {
+
+    const [savedPics, setSavedPics] = useState(dummyData);
+
     return (
         <div className="Collection">
-            {dummyData.map((p) => {
+            {savedPics.map((p) => {
                 return <Card title={p.title}/>
             })}
             {/* <Card /> */}
