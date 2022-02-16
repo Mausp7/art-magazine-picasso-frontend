@@ -59,4 +59,12 @@ body {
 	background-color: #f1f2f6;
 
 	font-family: "Roboto", sans-serif;
+
+	transition: width 500ms ease-in-out, margin-left 500ms ease-in-out;
+}
+
+body.full-width {
+	width: 100vw;
+
+	margin-left: 0px;
 }

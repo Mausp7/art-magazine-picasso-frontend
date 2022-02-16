@@ -1,10 +1,20 @@
 import {Link} from "react-router-dom";
+import { useState } from "react";
 import './Header.scss';
 import logo from "../assets/picasso.jpg";
 
 const Header = () => {
+    const [headerOn, setHeaderOn] = useState(true)
+    
+    const toggleHeader = () => {
+        setHeaderOn(!headerOn); 
+        const body = document.querySelector("body");
+        body.classList.toggle("full-width");
+    }
+
     return (
-        <header className="header">
+        <header className={headerOn ? "header-on" : "header-off"} >
+            <button className="header-toggle" onClick={toggleHeader}>{headerOn ? "X" : "->"}</button>
             <div className="logo-container">
                 <img className="logo-image" src={logo} alt="Picasso portrait" />
                 <h1>Picasso</h1>

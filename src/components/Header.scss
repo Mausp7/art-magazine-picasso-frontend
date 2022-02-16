@@ -1,11 +1,11 @@
-header.header {
+header[class^="header"] {
 	position: fixed;
 	left: 0px;
 	top: 0px;
 
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 
 	height: calc(100vh - 30px);
@@ -16,6 +16,20 @@ header.header {
 	padding: 20px;
 	border-radius: 15px;
 	background-color: #fff;
+
+	button.header-toggle {
+		position: absolute;
+		right: 0px;
+		top: 0px;
+
+		width: 35px;
+		height: 35px;
+
+		border-radius: 15px;
+		background-color: rgba(255, 255, 255, 0.5);
+
+		transition: right 500ms ease-in-out;
+	}
 
 	.logo-container {
 		display: flex;
@@ -74,5 +88,17 @@ header.header {
 		font-size: 1.6em;
 		font-weight: 700;
 		color: #fff;
+
+		cursor: pointer;
+	}
+
+	transition: transform 500ms ease-in-out;
+}
+
+header.header-off {
+	transform: translateX(-335px);
+
+	button.header-toggle {
+		right: -40px;
 	}
 }
