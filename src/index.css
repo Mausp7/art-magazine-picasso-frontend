@@ -51,3 +51,12 @@ select {
 
 	border-radius: 0;
 }
+
+body {
+	width: calc(100vw - 350px);
+
+	margin-left: 350px;
+	background-color: #f1f2f6;
+
+	font-family: "Roboto", sans-serif;
+}
