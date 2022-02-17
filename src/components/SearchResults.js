@@ -15,6 +15,7 @@ function SearchResults({ results, loading }) {
 		  title,
 		  url
 		})
+		alert("Added to My Collection");
 	};
 
 	if (loading) {
