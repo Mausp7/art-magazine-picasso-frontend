@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Card from "./Card";
 import './Collection.css';
 import http from "axios";
@@ -27,16 +27,17 @@ const Collection = () => {
 
     const load = async () => {
         const res = await http.get('http://localhost:5000/api/user/1');
-        setSavedPics(res.data);
+        setSavedPics(res.data.collection);
     };
-    load();
     console.log(savedPics);
+
+    useEffect(() => {
+        load();
+      }, [])
 
     return (
         <div className="Collection">
-            {savedPics.map((p) => {
-                return <Card title={p.title}/>
-            })}
+            {savedPics.map(p => (<Card title={p.title} source={p.url}/>))}
         </div>
     )
 }
