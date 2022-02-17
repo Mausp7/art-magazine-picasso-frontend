@@ -23,13 +23,16 @@ import http from "axios";
 
 const Collection = () => {
 
-    const [savedPics, setSavedPics] = useState("");
+    const [savedPics, setSavedPics] = useState([]);
 
     const load = async () => {
-        const res = await http.get('http://localhost:5000/api/user/1');
-        setSavedPics(res.data.collection);
+        try {
+            const res = await http.get('http://localhost:5000/api/user/1');
+            setSavedPics(res.data.collection);
+        } catch (error) {
+            alert("Collection not found!")
+        }
     };
-    console.log(savedPics);
 
     useEffect(() => {
         load();
@@ -37,7 +40,8 @@ const Collection = () => {
 
     return (
         <div className="Collection">
-            {savedPics.map(p => (<Card title={p.title} source={p.url}/>))}
+            {savedPics.map((p, i) => (<Card key={i} title={p.title} source={p.url}/>)
+            )}
         </div>
     )
 }
