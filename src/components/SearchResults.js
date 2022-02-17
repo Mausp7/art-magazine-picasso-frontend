@@ -1,3 +1,4 @@
+import { divide } from "lodash";
 import { Row, Col, Card, Spinner } from "react-bootstrap";
 import { artworkImageUrl } from "./api";
 
@@ -17,22 +18,28 @@ function SearchResults({ results, loading }) {
 	}
 
 	return (
-		<Row>
-			{results.map((result) => (
-				<Col xs={12} md={4} lg={3} key={result.id}>
-					<Card>
-						<Card.Img
-							variant="top"
-							src={artworkImageUrl(result.image_id, 250)}
-							alt={result.thumbnail?.alt_text}
-						/>
-						<Card.Body>
-							<Card.Title>{result.title}</Card.Title>
-						</Card.Body>
-					</Card>
-				</Col>
-			))}
-		</Row>
+		// <Row>
+		// 	{results.map((result) => (
+		// 		<Col xs={12} md={4} lg={3} key={result.id}>
+		// 			<Card>
+		// 				<Card.Img
+		// 					variant="top"
+		// 					src={artworkImageUrl(result.image_id, 250)}
+		// 					alt={result.thumbnail?.alt_text}
+		// 				/>
+		// 				<Card.Body>
+		// 					<Card.Title>{result.title}</Card.Title>
+		// 				</Card.Body>
+		// 			</Card>
+		// 		</Col>
+		// 	))}
+		// </Row>
+		<div>
+			{results.map((result) => {
+				return <Card title={result.title} source={artworkImageUrl(result.image_id, 250)}/>
+			})}
+		</div>
+
 	);
 }
 
