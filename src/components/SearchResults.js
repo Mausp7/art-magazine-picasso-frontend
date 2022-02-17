@@ -37,7 +37,7 @@ function SearchResults({ results, loading }) {
 		// </Row>
 		<div className="SearchResults">
 			{results.map((result) => {
-				return <Card title={result.title} source={artworkImageUrl(result.image_id, 250)}/>
+				return <Card key={result.id} title={result.title} source={artworkImageUrl(result.image_id, 250)}/>
 			})}
 		</div>
 
