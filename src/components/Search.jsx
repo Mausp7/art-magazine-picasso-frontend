@@ -28,7 +28,17 @@ function Search() {
 
 		// Otherwise, start a search
 		setLoading(true);
-		search(query, "id", "title", "image_id", "thumbnail")
+		search(
+			query,
+			"id",
+			"title",
+			"image_id",
+			"thumbnail",
+			"artist_display",
+			"description",
+			"date_display",
+			"place_of_origin"
+		)
 			.then((searchResults) => {
 				if (searchResults && searchResults.data) {
 					setResults(searchResults.data);
@@ -54,11 +64,11 @@ function Search() {
 					</Container>
 				</div>
 			</header>
-				{error ? (
-					<p>Unable to retrieve results.</p>
-				) : (
-					<SearchResults results={results} loading={loading} />
-				)}
+			{error ? (
+				<p>Unable to retrieve results.</p>
+			) : (
+				<SearchResults results={results} loading={loading} />
+			)}
 		</div>
 	);
 }

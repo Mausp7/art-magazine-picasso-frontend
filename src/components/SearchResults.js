@@ -1,7 +1,7 @@
 import { divide } from "lodash";
 import { Row, Col, Spinner } from "react-bootstrap";
 import { artworkImageUrl } from "./api";
-import Card from './Card';
+import Card from "./Card";
 
 function SearchResults({ results, loading }) {
 	if (loading) {
@@ -13,7 +13,7 @@ function SearchResults({ results, loading }) {
 			</Row>
 		);
 	}
-
+	console.log(results);
 	if (!(results && results.length)) {
 		return null;
 	}
@@ -37,10 +37,15 @@ function SearchResults({ results, loading }) {
 		// </Row>
 		<div className="SearchResults">
 			{results.map((result) => {
-				return <Card key={result.id} title={result.title} source={artworkImageUrl(result.image_id, 250)}/>
+				return (
+					<Card
+						key={result.id}
+						title={result.title}
+						source={artworkImageUrl(result.image_id, 250)}
+					/>
+				);
 			})}
 		</div>
-
 	);
 }
 
