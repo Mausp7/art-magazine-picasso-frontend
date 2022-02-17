@@ -50,3 +50,16 @@
   border-radius: 0px 15px 15px 0px;
   object-fit: cover;
 }
+
+.Card-btn-favs {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+
+  width: 60px;
+  height: 60px;
+
+  background-color: rgb(235, 111, 132);
+
+  border-radius: 50%;
+}

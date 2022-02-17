@@ -4,6 +4,12 @@
   align-items: center;
 }
 
+.SearchResults {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .painting-background {
   /* scrim so we can read text over image https://css-tricks.com/design-considerations-text-images/ */
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
