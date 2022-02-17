@@ -1,6 +1,7 @@
 import { divide } from "lodash";
-import { Row, Col, Card, Spinner } from "react-bootstrap";
+import { Row, Col, Spinner } from "react-bootstrap";
 import { artworkImageUrl } from "./api";
+import Card from './Card';
 
 function SearchResults({ results, loading }) {
 	if (loading) {
