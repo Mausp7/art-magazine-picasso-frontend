@@ -48,7 +48,7 @@ function SearchResults({ results, loading }) {
 		// 		</Col>
 		// 	))}
 		// </Row>
-		<div>
+		<div className="SearchResults">
 			{results.map((result) => {
 				return <Card title={result.title} source={artworkImageUrl(result.image_id, 250)} addClickEvent={() => saveToCollection(result.title, artworkImageUrl(result.image_id, 250))}/>
 			})}

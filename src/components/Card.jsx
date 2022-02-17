@@ -11,7 +11,7 @@ const Card = ({title, description = lorem, source=src, addClickEvent}) => {
     <div className='Card'>
         <div className='Card-text'>
             <h2 className='Card-heading' onClick={addClickEvent}>{title}</h2>
-            <FaPlusSquare style={{color: "#458db6", transform: "scale(2.5)", cursor: "pointer"}} onClick={addClickEvent}/>
+            <FaPlusSquare className='Card-btn-favs' style={{color: "#458db6", transform: "scale(2.5)", cursor: "pointer"}} onClick={addClickEvent}/>
             <p className='Card-description'>{description}</p>
         </div>
         <img className="Card-img" src={source} alt={title}/>
