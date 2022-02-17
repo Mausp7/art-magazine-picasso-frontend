@@ -1,9 +1,23 @@
-import { divide } from "lodash";
-import { Row, Col, Spinner } from "react-bootstrap";
+/* import { divide } from "lodash"; */
+import { Row, Spinner } from "react-bootstrap";
+/* import { Col } from "react-bootstrap"; */
 import { artworkImageUrl } from "./api";
 import Card from './Card';
+import http from "axios";
 
 function SearchResults({ results, loading }) {
+
+	const saveToCollection = async (title, url) => {
+		console.log(title);
+		console.log(url);
+		await http.post('http://localhost:5000/api/user/1', {
+		  artist: "Artist",
+		  title,
+		  url
+		})
+		alert("Added to My Collection");
+	};
+
 	if (loading) {
 		return (
 			<Row>
@@ -37,7 +51,7 @@ function SearchResults({ results, loading }) {
 		// </Row>
 		<div className="SearchResults">
 			{results.map((result) => {
-				return <Card key={result.id} title={result.title} source={artworkImageUrl(result.image_id, 250)}/>
+				return <Card title={result.title} source={artworkImageUrl(result.image_id, 250)} addClickEvent={() => saveToCollection(result.title, artworkImageUrl(result.image_id, 250))}/>
 			})}
 		</div>
 

@@ -33,6 +33,7 @@
 .Card-heading {
   font-weight: 900;
   font-size: 48px;
+  cursor: pointer;
 }
 
 .Card-description {
@@ -53,13 +54,7 @@
 
 .Card-btn-favs {
   position: absolute;
-  bottom: 12px;
-  right: 12px;
-
-  width: 60px;
-  height: 60px;
-
-  background-color: rgb(235, 111, 132);
-
-  border-radius: 50%;
+  top: 30px;
+  right: 30px;
+  z-index: 5;
 }

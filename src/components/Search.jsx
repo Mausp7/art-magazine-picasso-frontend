@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Navbar, Container } from "react-bootstrap";
-
+import { Container } from "react-bootstrap";
+/* import { Navbar } from "react-bootstrap";
+ */
 import { search } from "./api";
 import SearchPic from "./SearchPic";
 import SearchResults from "./SearchResults";
