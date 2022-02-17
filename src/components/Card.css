@@ -33,6 +33,7 @@
 .Card-heading {
   font-weight: 900;
   font-size: 48px;
+  cursor: pointer;
 }
 
 .Card-description {

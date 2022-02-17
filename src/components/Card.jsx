@@ -1,17 +1,20 @@
 import React from 'react';
 import './Card.css';
+import { FaPlusSquare } from "react-icons/fa";
 
-const lorem = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, provident architecto similique voluptatem qui eaque perferendis nulla, consectetur esse omnis enim voluptatibus corporis vel beatae nobis id voluptate deleniti error!';
+
+const lorem = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. ';
 const src = 'https://static01.nyt.com/images/2018/03/02/arts/design/02picasso-print/01picasso1-superJumbo.jpg';
 
-const Card = ({title = 'Lorem Ipsum', description = lorem, source=src}) => {
+const Card = ({title, description = lorem, source=src, addClickEvent}) => {
   return (
     <div className='Card'>
         <div className='Card-text'>
-            <h2 className='Card-heading'>{title}</h2>
+            <h2 className='Card-heading' onClick={addClickEvent}>{title}</h2>
+            <FaPlusSquare style={{color: "#458db6", transform: "scale(2.5)", cursor: "pointer"}} onClick={addClickEvent}/>
             <p className='Card-description'>{description}</p>
         </div>
-        <img className="Card-img" src={source} alt={title} />
+        <img className="Card-img" src={source} alt={title}/>
     </div>
   )
 }
