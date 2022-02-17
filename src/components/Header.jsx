@@ -16,17 +16,15 @@ const Header = () => {
 
     return (
         <header className={headerOn ? "header-on" : "header-off"} >
-            <button className="header-toggle" onClick={toggleHeader}>{headerOn ? <AiOutlineCloseCircle style={{transform: "scale(2)"}}/> : <GiHamburgerMenu style={{transform: "scale(2.5)"}}/>}</button>
+            <button className="header-toggle" onClick={toggleHeader}>{headerOn ? <AiOutlineCloseCircle style={{transform: "scale(2.2)"}}/> : <GiHamburgerMenu style={{transform: "scale(2.5)"}}/>}</button>
             <div className="logo-container">
                 <img className="logo-image" src={logo} alt="Picasso portrait" />
                 <h1>Picasso</h1>
                 <h2>Art Collector App</h2>
             </div>
             <nav> 
-                <ul>
-                    <li className="nav-link"><Link to="/" >Search</Link></li>
-                    <li className="nav-link"><Link to="/collection" >My collection</Link></li>
-                </ul>
+                <Link to="/" ><button className="nav-link">Search</button></Link>
+                <Link to="/collection" ><button className="nav-link">My collection</button></Link>
             </nav>
             <div>
                 <button className="nav-button">Sign in</button>
