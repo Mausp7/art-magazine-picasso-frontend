@@ -14,7 +14,7 @@ const json = throttle(async (endpoint) => {
 
 // http://api.artic.edu/docs/#collections
 export const search = async (query, ...fields) => {
-	let endpoint = `/artworks/search?q=${query}&limit=1`;
+	let endpoint = `/artworks/search?q=${query}&limit=10`;
 	if (fields.length) {
 		endpoint += "&fields=" + fields.join(",");
 	}

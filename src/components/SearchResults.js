@@ -41,6 +41,10 @@ function SearchResults({ results, loading }) {
 					<Card
 						key={result.id}
 						title={result.title}
+						description={result.description}
+						date_display={result.date_display}
+						artist_display={result.artist_display}
+						place_of_origin={result.place_of_origin}
 						source={artworkImageUrl(result.image_id, 250)}
 					/>
 				);
