@@ -8,8 +8,6 @@ import http from "axios";
 function SearchResults({ results, loading }) {
 
 	const saveToCollection = async (artist, title, url) => {
-		console.log(title);
-		console.log(url);
 		await http.post('http://localhost:5000/api/user/1', {
 		  artist,
 		  title,
