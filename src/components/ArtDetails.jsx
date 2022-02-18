@@ -23,8 +23,8 @@ const ArtDetails = ({collection, index, setPage, reload}) => {
 
     const deleteArt = async () => {
         const newCollection = await axios.delete(`http://localhost:5000/api/user/1?url=${art.url}`);
-        setArts(newCollection.data);
         reload(newCollection.data);
+        alert("Artpiece deleted.")
         setPage("list")
     };
 
@@ -62,7 +62,7 @@ const ArtDetails = ({collection, index, setPage, reload}) => {
                 />
             </div>
             <img src={art.url} alt={art.title} />
-            {!updateForm && <section className="update-form"><button className="nav-page" onClick={() => setUpdateForm(true)}>Update</button></section>}
+            {!updateForm && <section className="update-form"><button className="nav-page" onClick={() => setUpdateForm(true)}>Edit</button></section>}
             {updateForm && <section className="update-form">
                     <textarea 
                         placeholder="Description"
