@@ -7,14 +7,17 @@ const ArtDetails = ({collection, index, setPage, reload}) => {
     const [arts, setArts] = useState(collection)
     const [artIndex, setArtIndex] = useState(index)
     const [art, setArt] = useState(arts[artIndex]);
+    const [updateForm, setUpdateForm] = useState(false);
     const [input, setInput] = useState({description: art ? art.description : "", tags: art ? art.tags : [], rating: art ? art.rating : 0});
 
-    const updateArt = async () => {
+    const saveArt = async () => {
         const newCollection = await axios.put(`http://localhost:5000/api/user/1?url=${art.url}`, 
             {...art, ...input});
         setArts(newCollection.data);
         reload(newCollection.data);
+        setUpdateForm(false)
         alert("Artpiece updated.")
+
     };
 
     const deleteArt = async () => {
@@ -58,18 +61,21 @@ const ArtDetails = ({collection, index, setPage, reload}) => {
                 />
             </div>
             <img src={art.url} alt={art.title} />
-            <textarea 
-                placeholder="Description"
-                value={input.description} 
-                onChange={(event)=> setInput({...input, description: event.target.value})} 
-            ></textarea>
-            <input 
-                placeholder="Tags, divided by ', '"
-                type="text" value={input.tags.join(", ")}
-                onChange={(event)=> setInput({...input, tags: event.target.value.split(", ")})}
-            />
-            <button className="nav-page" onClick={updateArt}>Update</button>
-            <button className="nav-page" onClick={deleteArt}>Delete</button>
+            {!updateForm && <button className="nav-page" onClick={() => setUpdateForm(true)}>Update</button>}
+            {updateForm && <section>
+                    <textarea 
+                        placeholder="Description"
+                        value={input.description} 
+                        onChange={(event)=> setInput({...input, description: event.target.value})} 
+                    ></textarea>
+                    <input 
+                        placeholder="Tags, divided by ', '"
+                        type="text" value={input.tags.join(", ")}
+                        onChange={(event)=> setInput({...input, tags: event.target.value.split(", ")})}
+                    />
+                    <button className="nav-page" onClick={saveArt}>Save</button>
+                    <button className="nav-page" onClick={deleteArt}>Delete</button>
+                </section>}
             <div>
                 <button 
                     className="nav-page"
