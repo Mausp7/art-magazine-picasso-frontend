@@ -27,8 +27,8 @@ const Header = () => {
                 <Link to="/collection" ><button className="nav-link">My collection</button></Link>
             </nav>
             <div>
-                <button className="nav-button">Sign in</button>
-                <button className="nav-button">Create account</button>
+                <Link to="/login" ><button className="nav-button">Sign in</button></Link>
+                <Link to="/register" ><button className="nav-button">Create account</button></Link>
             </div>
         </header>
 
