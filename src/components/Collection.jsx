@@ -46,6 +46,7 @@ const Collection = () => {
             {page === "single" && <ArtDetails collection={savedPics} index={artIndex} setPage={setPage} setIndex={setArtIndex} reload={setSavedPics} />}
             {page === "list" && 
                 <div className="Collection">
+                    {savedPics.length === 0 && <h2 style={{marginTop: "43vh", textAlign: "center"}} >There are nothing saved in your collection yet.</h2>}
                     {savedPics.map((p, i) => (<Card key={i} title={p.title} source={p.url} artist_display={p.artist} addClickEvent={() => {setPage("single"); setArtIndex(i)}} />)
                     )}
                 </div>}
