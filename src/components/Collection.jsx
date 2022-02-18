@@ -46,7 +46,7 @@ const Collection = () => {
             {page === "single" && <ArtDetails collection={savedPics} index={artIndex} setPage={setPage} setIndex={setArtIndex} reload={setSavedPics} />}
             {page === "list" && 
                 <div className="Collection">
-                    {savedPics.map((p, i) => (<Card key={i} title={p.title} source={p.url} addClickEvent={() => {setPage("single"); setArtIndex(i)}} />)
+                    {savedPics.map((p, i) => (<Card key={i} title={p.title} source={p.url} artist_display={p.artist} addClickEvent={() => {setPage("single"); setArtIndex(i)}} />)
                     )}
                 </div>}
         </>

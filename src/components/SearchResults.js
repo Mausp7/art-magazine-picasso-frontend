@@ -7,11 +7,11 @@ import http from "axios";
 
 function SearchResults({ results, loading }) {
 
-	const saveToCollection = async (title, url) => {
+	const saveToCollection = async (artist, title, url) => {
 		console.log(title);
 		console.log(url);
 		await http.post('http://localhost:5000/api/user/1', {
-		  artist: "Artist",
+		  artist,
 		  title,
 		  url
 		})
@@ -60,7 +60,7 @@ function SearchResults({ results, loading }) {
 						artist_display={result.artist_display}
 						place_of_origin={result.place_of_origin}
 						source={artworkImageUrl(result.image_id, 250)}
-						addClickEvent={() => saveToCollection(result.title, artworkImageUrl(result.image_id, 250))}
+						addClickEvent={() => saveToCollection(result.artist_display, result.title, artworkImageUrl(result.image_id, 250))}
 					/>
 				);
 			})}
