@@ -43,7 +43,7 @@ const Collection = () => {
 
     return (
         <>
-            {page === "single" && <ArtDetails collection={savedPics} index={artIndex} setPage={setPage} setIndex={setArtIndex}/>}
+            {page === "single" && <ArtDetails collection={savedPics} index={artIndex} setPage={setPage} setIndex={setArtIndex} reload={setSavedPics} />}
             {page === "list" && 
                 <div className="Collection">
                     {savedPics.map((p, i) => (<Card key={i} title={p.title} source={p.url} addClickEvent={() => {setPage("single"); setArtIndex(i)}} />)
