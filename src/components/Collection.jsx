@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Card from "./Card";
 import './Collection.css';
 import http from "axios";
+import ArtDetails from "./ArtDetails";
 
 /* const dummyData = [
     {
@@ -24,6 +25,8 @@ import http from "axios";
 const Collection = () => {
 
     const [savedPics, setSavedPics] = useState([]);
+    const [page, setPage] = useState("list");
+    const [artIndex, setArtIndex] = useState(1);
 
     const load = async () => {
         try {
@@ -36,14 +39,17 @@ const Collection = () => {
 
     useEffect(() => {
         load();
-      }, [])
+    }, []);
 
     return (
-        <div className="Collection">
-            {savedPics.map((p, i) => (<Card key={i} title={p.title} source={p.url}/>)
-            )}
-        </div>
+        <>
+            {page === "single" && <ArtDetails collection={savedPics} index={artIndex} setPage={setPage} setIndex={setArtIndex}/>}
+            {page === "list" && 
+                <div className="Collection">
+                    {savedPics.map((p, i) => (<Card key={i} title={p.title} source={p.url} addClickEvent={() => {setPage("single"); setArtIndex(i)}} />)
+                    )}
+                </div>}
+        </>
     )
 }
-
 export default Collection
