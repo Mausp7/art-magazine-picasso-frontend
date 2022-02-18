@@ -27,7 +27,7 @@ function SearchResults({ results, loading }) {
 			</Row>
 		);
 	}
-
+	console.log(results);
 	if (!(results && results.length)) {
 		return null;
 	}
@@ -51,10 +51,20 @@ function SearchResults({ results, loading }) {
 		// </Row>
 		<div className="SearchResults">
 			{results.map((result) => {
-				return <Card title={result.title} source={artworkImageUrl(result.image_id, 250)} addClickEvent={() => saveToCollection(result.title, artworkImageUrl(result.image_id, 250))}/>
+				return (
+					<Card
+						key={result.id}
+						title={result.title}
+						description={result.description}
+						date_display={result.date_display}
+						artist_display={result.artist_display}
+						place_of_origin={result.place_of_origin}
+						source={artworkImageUrl(result.image_id, 250)}
+						addClickEvent={() => saveToCollection(result.title, artworkImageUrl(result.image_id, 250))}
+					/>
+				);
 			})}
 		</div>
-
 	);
 }
 
