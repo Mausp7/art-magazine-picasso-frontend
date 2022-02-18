@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Navbar, Container } from "react-bootstrap";
-
+import { Container } from "react-bootstrap";
+/* import { Navbar } from "react-bootstrap";
+ */
 import { search } from "./api";
 import SearchPic from "./SearchPic";
 import SearchResults from "./SearchResults";
@@ -54,7 +55,7 @@ function Search() {
 				{/* <Navbar bg="dark" variant="dark">
 					<Navbar.Brand>Atrsy</Navbar.Brand>
 				</Navbar> */}
-				<div fluid className="painting-background Jumbotron">
+				<div className="painting-background Jumbotron">
 					<Container className="text-center">
 						<h1>Find Art You Love</h1>
 						<SearchPic

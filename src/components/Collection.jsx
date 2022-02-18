@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Card from "./Card";
 import './Collection.css';
+import http from "axios";
+import ArtDetails from "./ArtDetails";
 
-const dummyData = [
+/* const dummyData = [
     {
         title: 'Painting One'
     },
@@ -18,20 +20,36 @@ const dummyData = [
     {
         title: 'Painting Five'
     },
-]
+] */
 
 const Collection = () => {
 
-    const [savedPics, setSavedPics] = useState(dummyData);
+    const [savedPics, setSavedPics] = useState([]);
+    const [page, setPage] = useState("list");
+    const [artIndex, setArtIndex] = useState(1);
+
+    const load = async () => {
+        try {
+            const res = await http.get('http://localhost:5000/api/user/1');
+            setSavedPics(res.data.collection);
+        } catch (error) {
+            alert("Collection not found!")
+        }
+    };
+
+    useEffect(() => {
+        load();
+    }, []);
 
     return (
-        <div className="Collection">
-            {savedPics.map((p) => {
-                return <Card title={p.title}/>
-            })}
-            {/* <Card /> */}
-        </div>
+        <>
+            {page === "single" && <ArtDetails collection={savedPics} index={artIndex} setPage={setPage} setIndex={setArtIndex} reload={setSavedPics} />}
+            {page === "list" && 
+                <div className="Collection">
+                    {savedPics.map((p, i) => (<Card key={i} title={p.title} source={p.url} addClickEvent={() => {setPage("single"); setArtIndex(i)}} />)
+                    )}
+                </div>}
+        </>
     )
 }
-
 export default Collection
