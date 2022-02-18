@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { AiFillStar } from "react-icons/ai";
+import {BiLeftArrowAlt, BiRightArrowAlt, BiArrowToLeft, BiArrowToRight} from "react-icons/bi";
 import axios from "axios";
 import "./ArtDetails.scss";
 
@@ -34,11 +35,11 @@ const ArtDetails = ({collection, index, setPage, reload}) => {
     return (
     <div className="details-container">
         <div className="details">
-            <h2>{art.artist}</h2>
+            <h3>{art.artist}</h3>
             <h2>{art.title}</h2>
             {input.description && <p>{input.description}</p>}
             {input.tags && <ul>{input.tags.map((tag, index) => <li key={index}>{tag}</li>)}</ul>}
-            <div>
+            <div className="rating-stars">
                 <AiFillStar 
                     onClick={() => {setInput({...input, rating: 1}); setArt({...art, rating: 1})}} 
                     style={{color: art.rating > 0 ? "#ffc107" : "#999"}} 
@@ -61,8 +62,8 @@ const ArtDetails = ({collection, index, setPage, reload}) => {
                 />
             </div>
             <img src={art.url} alt={art.title} />
-            {!updateForm && <button className="nav-page" onClick={() => setUpdateForm(true)}>Update</button>}
-            {updateForm && <section>
+            {!updateForm && <section className="update-form"><button className="nav-page" onClick={() => setUpdateForm(true)}>Update</button></section>}
+            {updateForm && <section className="update-form">
                     <textarea 
                         placeholder="Description"
                         value={input.description} 
@@ -73,14 +74,26 @@ const ArtDetails = ({collection, index, setPage, reload}) => {
                         type="text" value={input.tags.join(", ")}
                         onChange={(event)=> setInput({...input, tags: event.target.value.split(", ")})}
                     />
-                    <button className="nav-page" onClick={saveArt}>Save</button>
-                    <button className="nav-page" onClick={deleteArt}>Delete</button>
+                    <div className="form-buttons">
+                        <button className="nav-page" onClick={saveArt}>Save</button>
+                        <button className="nav-page" onClick={deleteArt}>Delete</button>
+                    </div>
                 </section>}
-            <div>
+            <div className="pagination-container">
                 <button 
                     className="nav-page"
                     disabled={artIndex < 1}
-                    onClick={() => {; setArt(collection[artIndex-1]); setArtIndex(artIndex - 1)}} >{"<-"}
+                    onClick={() => {setArt(collection[0]); setArtIndex(0)}}
+                >    
+                    <BiArrowToLeft />
+                </button>
+
+                <button 
+                    className="nav-page"
+                    disabled={artIndex < 1}
+                    onClick={() => {; setArt(collection[artIndex-1]); setArtIndex(artIndex - 1)}}
+                >
+                    <BiLeftArrowAlt />
                 </button>
                 <button 
                     className="nav-page"
@@ -89,8 +102,20 @@ const ArtDetails = ({collection, index, setPage, reload}) => {
                 <button 
                     className="nav-page"
                     disabled={artIndex > collection.length - 2}
-                    onClick={() => {setArt(collection[artIndex + 1]); setArtIndex(artIndex + 1)}} >{"->"}
+                    onClick={() => {setArt(collection[artIndex + 1]); setArtIndex(artIndex + 1)}}
+                >
+                    <BiRightArrowAlt />
                 </button>
+                <button 
+                    className="nav-page"
+                    onClick={() => {
+                        setArt(collection[collection.length - 1]); 
+                        setArtIndex(collection.length - 1)
+                    }}
+                >    
+                    <BiArrowToRight />
+                </button>
+
             </div>
         </div>
     </div>

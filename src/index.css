@@ -61,6 +61,7 @@ body {
 
 	font-family: "Roboto", sans-serif;
 
+	overflow-x: hidden;
 	overflow-y: scroll;
 
 	transition: width 500ms ease-in-out, margin-left 500ms ease-in-out;
