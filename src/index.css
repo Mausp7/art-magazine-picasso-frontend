@@ -72,3 +72,26 @@ body.full-width {
 
 	margin-left: 0px;
 }
+
+.message {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+
+	max-width: 300px;
+
+	padding: 12px 30px;
+	border-radius: 15px;
+	background-color: rgb(220, 82, 82);
+	box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.6);
+
+	font-size: 1.2em;
+	font-weight: 500;
+	color: #fff;
+
+	transition: right 500ms ease-in-out;
+}
+
+.message.message-hidden {
+	right: -300px;
+}

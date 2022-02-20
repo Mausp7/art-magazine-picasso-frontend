@@ -3,6 +3,7 @@ import { AiFillStar } from "react-icons/ai";
 import {BiLeftArrowAlt, BiRightArrowAlt, BiArrowToLeft, BiArrowToRight} from "react-icons/bi";
 import axios from "axios";
 import "./ArtDetails.scss";
+import message from "./message";
 
 const ArtDetails = ({collection, index, setPage, reload}) => {
     const [arts, setArts] = useState(collection)
@@ -17,14 +18,14 @@ const ArtDetails = ({collection, index, setPage, reload}) => {
         setArts(newCollection.data);
         reload(newCollection.data);
         setUpdateForm(false)
-        alert("Artpiece updated.")
+        message("Artpiece updated.", 4000)
 
     };
 
     const deleteArt = async () => {
         const newCollection = await axios.delete(`http://localhost:5000/api/user/1?url=${art.url}`);
         reload(newCollection.data);
-        alert("Artpiece deleted.")
+        message("Artpiece deleted.")
         setPage("list")
     };
 
@@ -115,7 +116,6 @@ const ArtDetails = ({collection, index, setPage, reload}) => {
                 >    
                     <BiArrowToRight />
                 </button>
-
             </div>
         </div>
     </div>
