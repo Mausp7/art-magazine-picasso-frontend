@@ -36,13 +36,15 @@ const Register = () => {
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
+        placeholder="Username"
       />
       <input
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        placeholder="Password"
       />
-      <button className="reg" onClick={(e) => signUp()}>Register</button>
+      <Link to="/"><button className="reg" onClick={(e) => signUp()}>Register</button></Link>
       <Link to="/login"><button>I already have an account</button></Link>
     </div>
   )
