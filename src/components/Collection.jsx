@@ -3,6 +3,7 @@ import Card from "./Card";
 import './Collection.css';
 import http from "axios";
 import ArtDetails from "./ArtDetails";
+import message from "./message";
 
 /* const dummyData = [
     {
@@ -33,7 +34,7 @@ const Collection = () => {
             const res = await http.get('http://localhost:5000/api/user/1');
             setSavedPics(res.data.collection);
         } catch (error) {
-            alert("Collection not found!")
+            message("Collection not found!")
         }
     };
 

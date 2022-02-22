@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Register.css";
 import http from "axios";
+import message from "./message";
 
 const Register = () => {
 
@@ -19,12 +20,12 @@ const Register = () => {
       );
       setUsername("");
       setPassword("");
-      alert("Success");
+      message("Success");
     } catch (error) {
       if (error.response.status === 400) {
-        alert("Missing credentials");
+        message("Missing credentials");
       } else if (error.response.status === 409)
-        alert("Username already exists");
+        message("Username already exists");
     }
   };
 
@@ -35,13 +36,15 @@ const Register = () => {
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
+        placeholder="Username"
       />
       <input
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        placeholder="Password"
       />
-      <button className="reg" onClick={(e) => signUp()}>Register</button>
+      <Link to="/"><button className="reg" onClick={(e) => signUp()}>Register</button></Link>
       <Link to="/login"><button>I already have an account</button></Link>
     </div>
   )
