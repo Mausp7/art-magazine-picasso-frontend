@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Card.css";
-import { FaPlusSquare } from "react-icons/fa";
+import { FaPlusSquare, FaInfoCircle, FaInfo } from "react-icons/fa";
 
 const lorem =
 	"Lorem ipsum dolor sit amet consectetur adipisicing elit.";
@@ -21,7 +21,7 @@ const Card = ({
   const [readMore, setReadMore] = useState(false);
 
   const extraContent = (
-		<div>
+		<div className="extra-content">
 			<p className="extra-content">
 				{" "}
 				Artist: {artist_display} <br></br>
@@ -34,16 +34,15 @@ const Card = ({
   return (
     <div className='Card'>
         <div className='Card-text'>
-            <h2 className='Card-heading' onClick={addClickEvent}>{title}</h2>
-            <a
-					    className="read-more-link"
+            <h2 className='Card-heading' onClick={() => {
+						  setReadMore(!readMore);
+					  }}>{title}</h2>
+					  {/* <h2 className="read-more-link"
 					    onClick={() => {
 						  setReadMore(!readMore);
-					  }}
-				    >
-					  <h2>{linkName}</h2>
-				    </a>
+					  }}>{linkName}</h2> */}
 				    {readMore && extraContent}
+			<FaInfoCircle style={{color: "pink", transform: "scale(2.5)", cursor: "pointer"}}/>
             <FaPlusSquare className='Card-btn-favs' style={{color: "#458db6", transform: "scale(2.5)", cursor: "pointer"}} onClick={addClickEvent}/>
             {/* <p className='Card-description'>{description}</p> */}
         </div>

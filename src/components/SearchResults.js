@@ -5,6 +5,8 @@ import { artworkImageUrl } from "./api";
 import Card from './Card';
 import http from "axios";
 
+import './SearchResults.css';
+
 function SearchResults({ results, loading }) {
 
 	const saveToCollection = async (artist, title, url) => {

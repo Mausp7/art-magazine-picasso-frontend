@@ -3,11 +3,13 @@
 .Card {
   position: relative;
   display: flex;
+  justify-content: center;
+  align-items: center;
 
-  width: 45%;
-  min-width: 800px;
+  width: 320px;
+  max-width: 85%;
 
-  height: 400px;
+  height: 320px;
 
   margin-top: 35px;
 
@@ -18,6 +20,20 @@
   background-color: white;
 
   box-shadow: 7px 10px 12px -5px rgba(0, 0, 0, 0.56);
+
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  transition: transform 0.5s;
+}
+
+.Card::-webkit-scrollbar {
+  display: none; /* Chrome */
+}
+
+.Card:hover {
+  transform: scale(1.1);
 }
 
 .Card-text {
@@ -27,29 +43,41 @@
   width: 45%;
   margin: 2.5%;
 
+  text-align: center;
+
   font-family: "Roboto", sans-serif;
 }
 
 .Card-heading {
   font-weight: 900;
-  font-size: 48px;
+  font-size: 24px;
   cursor: pointer;
+
+  background-color: #458db6;
+  color: white;
+
+  z-index: 2;
 }
 
 .Card-description {
   text-align: justify;
   font-size: 24px;
+
+  z-index: 2;
 }
 
 .Card-img {
   position: absolute;
   top: 0;
   right: 0;
-  width: 50%;
+  width: 100%;
   height: 100%;
 
-  border-radius: 0px 15px 15px 0px;
+  /* border-radius: 0px 15px 15px 0px; */
+  border-radius: 15px;
   object-fit: cover;
+
+  z-index: 0;
 }
 
 .Card-btn-favs {
@@ -64,8 +92,12 @@
   text-decoration: underline;
   letter-spacing: 1px;
   cursor: pointer;
+
+  z-index: 2;
 }
 .extra-content {
   color: cornflowerblue;
   font-weight: 500;
+
+  z-index: 100;
 }
