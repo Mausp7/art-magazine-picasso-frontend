@@ -12,7 +12,7 @@ const Login = () => {
 
   const login = async () => {
     try {
-      const res = await http.get('http://localhost:5000/api/user/login', {
+      const res = await http.get('http://localhost:5000/api/user', {
         headers: {
         'Authorization': JSON.stringify({username: authUsername , password: authPassword })
         }

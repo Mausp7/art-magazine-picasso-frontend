@@ -13,7 +13,7 @@ const Register = () => {
   const signUp = async () => {
     try {
       const response = await http.post(
-        "http://localhost:5000/api/user/signup",
+        "http://localhost:5000/api/user",
         {
           username: username,
           password: password,
