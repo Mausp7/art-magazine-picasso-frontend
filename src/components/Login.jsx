@@ -12,17 +12,13 @@ const Login = () => {
 
   const login = async () => {
     try {
-      const response = await http.post(
-        "http://localhost:5000/api/user",
-        {},
-        {
-          headers: {
-          Authorization: JSON.stringify({username:  authUsername , password: authPassword })
-          },
+      const res = await http.get('http://localhost:5000/api/user/login', {
+        headers: {
+        'Authorization': JSON.stringify({username: authUsername , password: authPassword })
         }
-      );
+      });
 
-      localStorage.setItem("sessionId", response.data);
+      localStorage.setItem("sessionId", res.data);
       navigate("/");
 
     } catch (error) {
