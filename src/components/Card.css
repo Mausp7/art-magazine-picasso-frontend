@@ -25,7 +25,7 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
-  transition: transform 0.5s;
+  transition: transform 0.25s;
 }
 
 .Card::-webkit-scrollbar {
@@ -87,6 +87,13 @@
   z-index: 5;
 }
 
+.Card-btn-info {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  z-index: 5;
+}
+
 .read-more-link {
   color: blueviolet;
   text-decoration: underline;
@@ -98,6 +105,8 @@
 .extra-content {
   color: cornflowerblue;
   font-weight: 500;
+
+  background-color: #fff;
 
   z-index: 100;
 }

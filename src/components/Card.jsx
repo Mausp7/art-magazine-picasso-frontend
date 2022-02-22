@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Card.css";
-import { FaPlusSquare, FaInfoCircle, FaInfo } from "react-icons/fa";
+import { FaPlusSquare, FaInfoCircle } from "react-icons/fa";
 
 const lorem =
 	"Lorem ipsum dolor sit amet consectetur adipisicing elit.";
@@ -23,30 +23,33 @@ const Card = ({
   const extraContent = (
 		<div className="extra-content">
 			<p className="extra-content">
+				<h2 className='Card-heading'>{title}</h2>
 				{" "}
 				Artist: {artist_display} <br></br>
 				Year:{date_display}, {place_of_origin}
 			</p>
 		</div>
 	);
-	const linkName = readMore ? "Show Less << " : "Show More >> ";
+	// const linkName = readMore ? "Show Less << " : "Show More >> ";
 
   return (
     <div className='Card'>
         <div className='Card-text'>
-            <h2 className='Card-heading' onClick={() => {
-						  setReadMore(!readMore);
-					  }}>{title}</h2>
+            {/* <h2 className='Card-heading'>{title}</h2> */}
 					  {/* <h2 className="read-more-link"
 					    onClick={() => {
 						  setReadMore(!readMore);
 					  }}>{linkName}</h2> */}
 				    {readMore && extraContent}
-			<FaInfoCircle style={{color: "pink", transform: "scale(2.5)", cursor: "pointer"}}/>
-            <FaPlusSquare className='Card-btn-favs' style={{color: "#458db6", transform: "scale(2.5)", cursor: "pointer"}} onClick={addClickEvent}/>
+			<div className="Card-buttons">
+				<FaInfoCircle className="Card-btn-info" style={{color: "#dc5252", transform: "scale(2.5)", cursor: "pointer"}} onClick={() => {
+						  setReadMore(!readMore);
+					  }}/>
+				<FaPlusSquare className='Card-btn-favs' style={{color: "#458db6", transform: "scale(2.5)", cursor: "pointer"}} onClick={addClickEvent}/>
+			</div>
             {/* <p className='Card-description'>{description}</p> */}
         </div>
-        <img className="Card-img" src={source} alt={title}/>
+		<img className="Card-img" style={readMore ? {opacity: '0.5'} : {opacity: '1'}} src={source} alt={title}/>
     </div>
   )
 }
