@@ -52,10 +52,15 @@ function Search() {
 	return (
 		<div className="Search">
 			<header>
+					<h1>Find Art You Love</h1>
+					<SearchPic
+							query={query}
+							onChange={(e) => setQuery(e.target.value)}
+					/>
 				{/* <Navbar bg="dark" variant="dark">
 					<Navbar.Brand>Atrsy</Navbar.Brand>
 				</Navbar> */}
-				<div className="painting-background Jumbotron">
+				{/* <div className="painting-background Jumbotron">
 					<Container className="text-center">
 						<h1>Find Art You Love</h1>
 						<SearchPic
@@ -63,7 +68,7 @@ function Search() {
 							onChange={(e) => setQuery(e.target.value)}
 						/>
 					</Container>
-				</div>
+				</div> */}
 			</header>
 			{error ? (
 				<p>Unable to retrieve results.</p>

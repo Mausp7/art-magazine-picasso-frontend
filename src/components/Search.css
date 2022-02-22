@@ -2,6 +2,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+header {
+  width: 100%;
+  text-align: center;
+}
+
+.SearchPic-input {
+  width: 95%;
+  height: 100px;
+  background-color: white;
+  color: #458db6;
+
+  border-radius: 15px;
+  box-shadow: 7px 10px 12px -5px rgba(0, 0, 0, 0.56);
+
+  font-size: 28px;
+
+  margin-top: 15px;
+  padding: 15px;
 }
 
 .SearchResults {
