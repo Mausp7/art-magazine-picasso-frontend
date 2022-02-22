@@ -1,6 +1,3 @@
-// https://evergreen.segment.com/components/search-input
-import { SearchInput } from "evergreen-ui";
-
 function SearchPic({ query, onChange }) {
 	return (
 		// <SearchInput
