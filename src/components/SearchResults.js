@@ -4,6 +4,7 @@ import { Row, Spinner } from "react-bootstrap";
 import { artworkImageUrl } from "./api";
 import Card from './Card';
 import http from "axios";
+import message from "./message"
 
 function SearchResults({ results, loading }) {
 
@@ -13,7 +14,7 @@ function SearchResults({ results, loading }) {
 		  title,
 		  url
 		})
-		alert("Added to My Collection");
+		message("Added to My Collection");
 	};
 
 	if (loading) {

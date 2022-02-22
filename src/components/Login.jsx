@@ -13,7 +13,7 @@ const Login = () => {
         "http://localhost:5000/api/user/login",
         {},
         {
-          //authorization
+          //Authorization
         }
       );
 
