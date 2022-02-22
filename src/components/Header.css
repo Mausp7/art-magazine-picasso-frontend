@@ -1,0 +1,174 @@
+header[class^="header"] {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: calc(100vh - 30px);
+  min-height: 550px;
+  width: 100%;
+  max-width: 320px;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #fff;
+  -webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.2);
+  -webkit-transition: -webkit-transform 500ms ease-in-out;
+  transition: -webkit-transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
+}
+
+header[class^="header"] button.header-toggle {
+  position: absolute;
+  right: 0px;
+  top: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgba(50, 50, 50, 0.9);
+  -webkit-transition: right 500ms ease-in-out;
+  transition: right 500ms ease-in-out;
+}
+
+header[class^="header"] .logo-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header[class^="header"] .logo-container .logo-image {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 800px) {
+  header[class^="header"] .logo-container .logo-image {
+    width: 80px;
+  }
+}
+
+header[class^="header"] .logo-container h1 {
+  font-size: 2.6em;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 800px) {
+  header[class^="header"] .logo-container h1 {
+    font-size: 2em;
+  }
+}
+
+header[class^="header"] .logo-container h2 {
+  font-size: 1.2em;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 800px) {
+  header[class^="header"] .logo-container h2 {
+    font-size: 1em;
+  }
+}
+
+header[class^="header"] .nav-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 190px;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #dc5252;
+  border-radius: 15px;
+  font-size: 1.3em;
+  font-weight: 400;
+  color: #fff;
+}
+
+header[class^="header"] .nav-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 260px;
+  height: 60px;
+  margin-top: 20px;
+  background-color: #458db6;
+  border-radius: 15px;
+  font-size: 1.6em;
+  font-weight: 700;
+  color: #fff;
+}
+
+header[class^="header"] button[class^="nav"] {
+  -webkit-transition: -webkit-transform 150ms ease-in-out, -webkit-box-shadow 150ms ease-in-out;
+  transition: -webkit-transform 150ms ease-in-out, -webkit-box-shadow 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, box-shadow 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, box-shadow 150ms ease-in-out, -webkit-transform 150ms ease-in-out, -webkit-box-shadow 150ms ease-in-out;
+}
+
+header[class^="header"] button[class^="nav"]:hover {
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
+header.header-off {
+  -webkit-transform: translateX(-335px);
+          transform: translateX(-335px);
+}
+
+header.header-off button.header-toggle {
+  right: -55px;
+}
+
+@media screen and (max-width: 800px) {
+  header.header-off button.header-toggle {
+    right: calc(-100vw + 20px);
+  }
+}
+/*# sourceMappingURL=Header.css.map */
