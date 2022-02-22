@@ -90,6 +90,8 @@ body.full-width {
   color: #fff;
 
   transition: right 500ms ease-in-out;
+
+  z-index: 100;
 }
 
 .message.message-hidden {

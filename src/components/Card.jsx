@@ -22,8 +22,8 @@ const Card = ({
 
   const extraContent = (
 		<div className="extra-content">
+			<h2 className='Card-heading'>{title}</h2>
 			<p className="extra-content">
-				<h2 className='Card-heading'>{title}</h2>
 				{" "}
 				Artist: {artist_display} <br></br>
 				Year:{date_display}, {place_of_origin}

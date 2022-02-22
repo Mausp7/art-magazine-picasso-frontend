@@ -3,7 +3,7 @@ body *,
 body *::before,
 body *::after {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   border: 0;
@@ -44,7 +44,7 @@ input,
 textarea,
 select {
   -moz-appearance: none !important;
-       appearance: none !important;
+  appearance: none !important;
   -webkit-appearance: none !important;
   border-radius: 0;
 }
@@ -75,12 +75,14 @@ body.full-width {
   border-radius: 15px;
   background-color: #dc5252;
   -webkit-box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.6);
-          box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.6);
+  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.6);
   font-size: 1.2em;
   font-weight: 500;
   color: #fff;
   -webkit-transition: right 500ms ease-in-out;
   transition: right 500ms ease-in-out;
+
+  z-index: 100;
 }
 
 .message.message-hidden {
