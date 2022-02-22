@@ -1,26 +1,32 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import http from "axios";
+import message from "./message";
+
 
 const Login = () => {
 
   const [authUsername, setAuthUsername] = useState("");
   const [authPassword, setAuthPassword] = useState("");
+  const navigate = useNavigate();
 
   const login = async () => {
     try {
       const response = await http.post(
-        "http://localhost:5000/api/user/login",
+        "http://localhost:5000/api/user",
         {},
         {
-          //Authorization
+          headers: {
+          Authorization: JSON.stringify({username:  authUsername , password: authPassword })
+          },
         }
       );
 
       localStorage.setItem("sessionId", response.data);
+      navigate("/");
 
     } catch (error) {
-      alert("Wrong username or password");
+      message("Wrong username or password");
     }
   };
 
@@ -39,7 +45,7 @@ const Login = () => {
             onChange={(e) => setAuthPassword(e.target.value)}
             placeholder="Password"
           />
-          <Link to="/"><button onClick={(e) => login()}>Log in</button></Link>
+          <button onClick={(e) => login()}>Log in</button>
           <Link to="/register"><button>Register</button></Link>
         </div>
   )
