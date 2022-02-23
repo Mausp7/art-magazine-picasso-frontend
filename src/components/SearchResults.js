@@ -2,6 +2,7 @@ import { artworkImageUrl } from "./api";
 import Card from './Card';
 import axios from "axios";
 import message from "./message"
+import Spinner from "./Spinner";
 
 function SearchResults({ results, loading, api }) {
 
@@ -25,6 +26,10 @@ function SearchResults({ results, loading, api }) {
 
 	if (!(results && results.length)) {
 		return null;
+	}
+
+	if (loading) {
+		return <Spinner />;
 	}
 
 	return (
