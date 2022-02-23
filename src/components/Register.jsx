@@ -8,6 +8,7 @@ const Register = ({api, url}) => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [reenterpass, setReenterpass] = useState("")
   const navigate = useNavigate();
 
   const signUp = async () => {
@@ -31,23 +32,68 @@ const Register = ({api, url}) => {
     }
   };
 
+  const getBottomBorderColor = (pw, pw2) => {
+    if (pw.length < 8 && pw.length > 0) {
+        return '#ff0000';
+    }
+    else if (pw !== pw2 && pw.length !== 0 && pw2.length !== 0) {
+      return '#ff0000';
+    }
+    else if (pw.length !== 0 && pw2.length !== 0 && pw === pw2) {
+        return '#21b12d';
+    }
+    
+    return '#458db6';
+}
+
   return (
     <div className='card'>
-      <h1>Register</h1>
-      <input
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        placeholder="Username"
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-      />
-      <button className="reg" onClick={(e) => signUp()}>Register</button>
-      <Link to="/login"><button>I already have an account</button></Link>
+      <form>
+        <h1>Register</h1>
+        <div className="username-box">
+          <div className="alert-label">
+            <label>Username</label>
+            {username.length < 3 && username.length > 0 ? <label className="alert-label">at least 3 characters</label> : null}
+          </div>
+          <input
+            type="text"
+            style={{ borderBottomColor: username.length >= 3 && "#21b12d" }}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Enter a username of your choice (min 3 characters)"
+            />
+        </div>
+        <div className="password-box">
+          <div className="alert-label">
+            <label>Password</label>
+            {password.length < 8 && password.length > 0 ? <label className="alert-label">at least 8 characters</label> : null}
+          </div>
+          <input
+            type="password"
+            style={{borderBottomColor: getBottomBorderColor(password, reenterpass)}}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
+          />
+          <div className="alert-label">
+            <label>Re-enter password</label>
+            {password.length >= 8 && password !== reenterpass ? <label className="alert-label">Make sure to re-enter the same password</label> : null}
+          </div>
+          <input
+            type="password"
+            value={reenterpass}
+            style={{borderBottomColor: getBottomBorderColor(reenterpass, password)}}
+            onChange={(e) => setReenterpass(e.target.value)}
+            placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
+          />
+        </div>
+        <button 
+          className="reg"
+          onClick={(e) => signUp()}
+          disabled={username.length < 3 || password.length === 0 || password !== reenterpass || password.length < 8}
+        >Register</button>
+        <Link to="/login"><button>I already have an account</button></Link>
+      </form>
     </div>
   )
 }
