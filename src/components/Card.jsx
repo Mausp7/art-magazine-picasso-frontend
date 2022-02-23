@@ -45,7 +45,7 @@ const Card = ({
 				<FaInfoCircle className="Card-btn-info" style={{color: "#dc5252", transform: "scale(2.5)", cursor: "pointer"}} onClick={() => {
 						  setReadMore(!readMore);
 					  }}/>
-				<FaPlusSquare className='Card-btn-favs' style={{color: "#458db6", transform: "scale(2.5)", cursor: "pointer"}} onClick={addClickEvent}/>
+				{localStorage.getItem("sessionId") && <FaPlusSquare className='Card-btn-favs' style={{color: "#458db6", transform: "scale(2.5)", cursor: "pointer"}} onClick={addClickEvent}/>}
 			</div>
             {/* <p className='Card-description'>{description}</p> */}
         </div>

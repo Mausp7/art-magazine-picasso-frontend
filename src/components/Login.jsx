@@ -4,7 +4,7 @@ import http from "axios";
 import message from "./message";
 
 
-const Login = ( {api} ) => {
+const Login = ( {api, setUser} ) => {
 
   const [authUsername, setAuthUsername] = useState("");
   const [authPassword, setAuthPassword] = useState("");
@@ -19,8 +19,9 @@ const Login = ( {api} ) => {
       });
 
       localStorage.setItem("sessionId", res.data);
-      navigate("/");
-      message("Logging in succesfull.")
+      navigate("/collection");
+      setUser(authUsername)
+      message(`Logged in as ${authUsername}`)
 
     } catch (error) {
       message("Wrong username or password");

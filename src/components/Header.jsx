@@ -1,12 +1,13 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { useState } from "react";
 import './Header.scss';
 import logo from "../assets/picasso.jpg";
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 
-const Header = () => {
-    const [headerOn, setHeaderOn] = useState(true)
+const Header = ({user, setUser}) => {
+    const [headerOn, setHeaderOn] = useState(true);
+    const navigate = useNavigate();
     
     const toggleHeader = () => {
         setHeaderOn(!headerOn); 
@@ -24,12 +25,21 @@ const Header = () => {
             </div>
             <nav> 
                 <Link to="/" ><button className="nav-link">Search</button></Link>
-                <Link to="/collection" ><button className="nav-link">My collection</button></Link>
+                {localStorage.getItem("sessionId") && <Link to="/collection" ><button className="nav-link">My Collection</button></Link>}
             </nav>
             <div>
-                <Link to="/login" ><button className="nav-button">Sign in</button></Link>
-                <Link to="/register" ><button className="nav-button">Create account</button></Link>
-                <button className="nav-button">Sign out</button>
+                {!localStorage.getItem("sessionId") && <Link to="/login" ><button className="nav-button">Sign in</button></Link>}
+                {!localStorage.getItem("sessionId") && <Link to="/register" ><button className="nav-button">Create account</button></Link>}
+                {user !== "" && <button className="nav-button">Welcome {user}</button>}
+                {localStorage.getItem("sessionId") && <button 
+                    className="nav-button"
+                    onClick={() =>{
+                        localStorage.removeItem("sessionId");
+                        setUser("");
+                        navigate("/");
+
+                    }}
+                >Sign out</button>}
             </div>
         </header>
 

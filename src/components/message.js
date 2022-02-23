@@ -1,4 +1,4 @@
-const message = (text, duration=5000) => {
+const message = (text, duration=3000) => {
 
     const id = text.split(" ").join("-");
     

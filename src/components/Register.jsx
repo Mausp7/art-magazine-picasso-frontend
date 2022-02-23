@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
-import http from "axios";
+import axios from "axios";
 import message from "./message";
 
 const Register = ({api}) => {
@@ -12,7 +12,7 @@ const Register = ({api}) => {
 
   const signUp = async () => {
     try {
-      const response = await http.post(
+      await axios.post(
         `${api}user`,
         {
           username: username,
@@ -21,7 +21,7 @@ const Register = ({api}) => {
       );
       setUsername("");
       setPassword("");
-      navigate("/");
+      navigate("/login");
       message("Success");
     } catch (error) {
       if (error.response.status === 400) {

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Card from "./Card";
 import './Collection.css';
 import axios from "axios";
@@ -10,6 +11,7 @@ const Collection = ( {api} ) => {
     const [savedPics, setSavedPics] = useState([]);
     const [page, setPage] = useState("list");
     const [artIndex, setArtIndex] = useState(1);
+    const navigate = useNavigate();
 
     const load = async () => {
 
@@ -21,7 +23,9 @@ const Collection = ( {api} ) => {
             });
             setSavedPics(collection.data);
         } catch (error) {
-            message("Collection not found!");
+            message("Collection could not load!");
+            localStorage.removeItem("sessionId");
+            navigate("login");
         };
     };
 

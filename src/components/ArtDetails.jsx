@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 import {BiLeftArrowAlt, BiRightArrowAlt, BiArrowToLeft, BiArrowToRight} from "react-icons/bi";
 import axios from "axios";
@@ -11,6 +12,7 @@ const ArtDetails = ({collection, index, setPage, reload, api}) => {
     const [art, setArt] = useState(arts[artIndex]);
     const [updateForm, setUpdateForm] = useState(false);
     const [input, setInput] = useState({description: art ? art.description : "", tags: art ? art.tags : [], rating: art ? art.rating : 0});
+    const navigate = useNavigate();
 
     const saveArt = async () => {
         try {
@@ -28,6 +30,8 @@ const ArtDetails = ({collection, index, setPage, reload, api}) => {
     
         } catch (error) {
             message("Could not update!");
+            localStorage.removeItem("sessionId");
+            navigate("login");
         };
 
     };
@@ -44,6 +48,8 @@ const ArtDetails = ({collection, index, setPage, reload, api}) => {
             setPage("list")
         } catch (error) {
             message("Could not delete!");
+            localStorage.removeItem("sessionId");
+            navigate("login");
         };
     };
 
