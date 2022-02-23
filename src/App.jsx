@@ -9,7 +9,7 @@ import Collection from "./components/Collection";
 const App = () => {
 	const [user, setUser] = useState("");
 	const url = "" // "/art-magazine-picasso-frontend"
-	const api = /* "http://18.194.76.198:5000/api/" */ "https://picasso.sloppy.zone/api/"//"http://localhost:5000/api/"
+	const api = "http://18.194.76.198:5000/api/" //"https://picasso.sloppy.zone/api/"  "http://localhost:5000/api/"
 
 	return (
 		<Router>

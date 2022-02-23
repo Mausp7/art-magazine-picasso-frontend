@@ -11,7 +11,8 @@ const Register = ({api, url}) => {
   const [reenterpass, setReenterpass] = useState("")
   const navigate = useNavigate();
 
-  const signUp = async () => {
+  const signUp = async (e) => {
+    e.preventDefault();
     try {
       await axios.post(
         `${api}user`,
@@ -89,7 +90,7 @@ const Register = ({api, url}) => {
         </div>
         <button 
           className="reg"
-          onClick={(e) => signUp()}
+          onClick={(e) => signUp(e)}
           disabled={username.length < 3 || password.length === 0 || password !== reenterpass || password.length < 8}
         >Register</button>
         <Link to="/login"><button>I already have an account</button></Link>
