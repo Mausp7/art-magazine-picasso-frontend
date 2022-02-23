@@ -63,7 +63,7 @@ const ArtDetails = ({collection, index, setPage, reload, api, url}) => {
             <h3>{art.artist}</h3>
             <h2>{art.title}</h2>
             {input.description && <p>{input.description}</p>}
-            {input.tags && <ul>{input.tags.map((tag, index) => <li key={index}>{tag}</li>)}</ul>}
+            {input.tags && <ul className="details-tags-list">{input.tags.map((tag, index) => <li className="details-tag" key={index}>{tag}</li>)}</ul>}
             <div className="rating-stars">
                 <AiFillStar 
                     onClick={() => {setInput({...input, rating: 1}); setArt({...art, rating: 1})}} 
