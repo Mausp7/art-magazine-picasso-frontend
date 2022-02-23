@@ -44,7 +44,7 @@ const Login = ( {api, url, setUser} ) => {
             placeholder="Password"
           />
           <button onClick={(e) => login()}>Log in</button>
-          <Link to="/register"><button>Register</button></Link>
+          <Link to={`${url}/register`}><button>Register</button></Link>
         </div>
   )
 }
