@@ -8,16 +8,17 @@ import Collection from "./components/Collection";
 
 const App = () => {
 	const [user, setUser] = useState("");
+	const url = "" // "/art-magazine-picasso-frontend"
 	const api = "https://picasso.sloppy.zone/api/"//"http://localhost:5000/api/"
 
 	return (
 		<Router>
-			<Header user={user} setUser={setUser} />
+			<Header user={user} setUser={setUser} url={url} />
 			<Routes>
-				<Route path="/" exact element={<Search api={api} />} />
-				<Route path="/register" element={<Register api={api} />} />
-				<Route path="/login" element={<Login api={api} setUser={setUser} />} />
-				<Route path="/collection" element={<Collection api={api} />} />
+				<Route path={`${url}/`} exact element={<Search url={url} api={api} />} />
+				<Route path={`${url}/register`} element={<Register url={url} api={api} />} />
+				<Route path={`${url}/login`} element={<Login url={url} api={api} setUser={setUser} />} />
+				<Route path={`${url}/collection`} element={<Collection url={url} api={api} />} />
 			</Routes>
 		</Router>
 	);

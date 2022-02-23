@@ -4,7 +4,7 @@ import http from "axios";
 import message from "./message";
 
 
-const Login = ( {api, setUser} ) => {
+const Login = ( {api, url, setUser} ) => {
 
   const [authUsername, setAuthUsername] = useState("");
   const [authPassword, setAuthPassword] = useState("");
@@ -19,7 +19,7 @@ const Login = ( {api, setUser} ) => {
       });
 
       localStorage.setItem("sessionId", res.data);
-      navigate("/collection");
+      navigate(`${url}/collection`);
       setUser(authUsername)
       message(`Logged in as ${authUsername}`)
 

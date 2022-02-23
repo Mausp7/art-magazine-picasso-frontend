@@ -5,7 +5,7 @@ import logo from "../assets/picasso.jpg";
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 
-const Header = ({user, setUser}) => {
+const Header = ({user, setUser, url}) => {
     const [headerOn, setHeaderOn] = useState(true);
     const navigate = useNavigate();
     
@@ -25,18 +25,18 @@ const Header = ({user, setUser}) => {
             </div>
             <nav> 
                 <Link to="/" ><button className="nav-link">Search</button></Link>
-                {localStorage.getItem("sessionId") && <Link to="/collection" ><button className="nav-link">My Collection</button></Link>}
+                {localStorage.getItem("sessionId") && <Link to={`${url}/collection`} ><button className="nav-link">My Collection</button></Link>}
             </nav>
             <div>
-                {!localStorage.getItem("sessionId") && <Link to="/login" ><button className="nav-button">Sign in</button></Link>}
-                {!localStorage.getItem("sessionId") && <Link to="/register" ><button className="nav-button">Create account</button></Link>}
+                {!localStorage.getItem("sessionId") && <Link to={`${url}/login`} ><button className="nav-button">Sign in</button></Link>}
+                {!localStorage.getItem("sessionId") && <Link to={`${url}/register`} ><button className="nav-button">Create account</button></Link>}
                 {user !== "" && <button className="nav-button">Welcome {user}</button>}
                 {localStorage.getItem("sessionId") && <button 
                     className="nav-button"
                     onClick={() =>{
                         localStorage.removeItem("sessionId");
                         setUser("");
-                        navigate("/");
+                        navigate(`${url}/`);
 
                     }}
                 >Sign out</button>}

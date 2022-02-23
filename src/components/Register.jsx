@@ -4,7 +4,7 @@ import "./Register.css";
 import axios from "axios";
 import message from "./message";
 
-const Register = ({api}) => {
+const Register = ({api, url}) => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -21,7 +21,7 @@ const Register = ({api}) => {
       );
       setUsername("");
       setPassword("");
-      navigate("/login");
+      navigate(`${url}/login`);
       message("Success");
     } catch (error) {
       if (error.response.status === 400) {

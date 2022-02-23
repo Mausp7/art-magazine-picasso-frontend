@@ -6,7 +6,7 @@ import axios from "axios";
 import ArtDetails from "./ArtDetails";
 import message from "./message";
 
-const Collection = ( {api} ) => {
+const Collection = ( {api, url} ) => {
 
     const [savedPics, setSavedPics] = useState([]);
     const [page, setPage] = useState("list");
@@ -25,7 +25,7 @@ const Collection = ( {api} ) => {
         } catch (error) {
             message("Collection could not load!");
             localStorage.removeItem("sessionId");
-            navigate("login");
+            navigate(`${url}/login`);
         };
     };
 
@@ -35,7 +35,7 @@ const Collection = ( {api} ) => {
 
     return (
         <>
-            {page === "single" && <ArtDetails api={api} collection={savedPics} index={artIndex} setPage={setPage} setIndex={setArtIndex} reload={setSavedPics} />}
+            {page === "single" && <ArtDetails url={url} api={api} collection={savedPics} index={artIndex} setPage={setPage} setIndex={setArtIndex} reload={setSavedPics} />}
             {page === "list" && 
                 <div className="Collection">
                     {savedPics.length === 0 && <h2 style={{marginTop: "43vh", textAlign: "center"}} >There are nothing saved in your collection yet.</h2>}

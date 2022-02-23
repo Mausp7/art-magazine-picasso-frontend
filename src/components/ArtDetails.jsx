@@ -6,7 +6,7 @@ import axios from "axios";
 import "./ArtDetails.scss";
 import message from "./message";
 
-const ArtDetails = ({collection, index, setPage, reload, api}) => {
+const ArtDetails = ({collection, index, setPage, reload, api, url}) => {
     const [arts, setArts] = useState(collection)
     const [artIndex, setArtIndex] = useState(index)
     const [art, setArt] = useState(arts[artIndex]);
@@ -31,7 +31,7 @@ const ArtDetails = ({collection, index, setPage, reload, api}) => {
         } catch (error) {
             message("Could not update!");
             localStorage.removeItem("sessionId");
-            navigate("login");
+            navigate(`${url}/login`);
         };
 
     };
@@ -49,7 +49,7 @@ const ArtDetails = ({collection, index, setPage, reload, api}) => {
         } catch (error) {
             message("Could not delete!");
             localStorage.removeItem("sessionId");
-            navigate("login");
+            navigate(`${url}/login`);
         };
     };
 
