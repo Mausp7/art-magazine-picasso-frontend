@@ -5,7 +5,7 @@ import axios from "axios";
 import "./ArtDetails.scss";
 import message from "./message";
 
-const ArtDetails = ({collection, index, setPage, reload}) => {
+const ArtDetails = ({collection, index, setPage, reload, api}) => {
     const [arts, setArts] = useState(collection)
     const [artIndex, setArtIndex] = useState(index)
     const [art, setArt] = useState(arts[artIndex]);
@@ -13,20 +13,38 @@ const ArtDetails = ({collection, index, setPage, reload}) => {
     const [input, setInput] = useState({description: art ? art.description : "", tags: art ? art.tags : [], rating: art ? art.rating : 0});
 
     const saveArt = async () => {
-        const newCollection = await axios.put(`http://localhost:5000/api/user/1?url=${art.url}`, 
-            {...art, ...input});
-        setArts(newCollection.data);
-        reload(newCollection.data);
-        setUpdateForm(false)
-        message("Artpiece updated.", 4000)
+        try {
+            const newCollection = await axios.put(`${api}user/collection`, {
+                ...art, ...input
+            },{
+                headers: {
+                    "Authorization": localStorage.getItem("sessionId")
+                }
+            });
+            setArts(newCollection.data);
+            reload(newCollection.data);
+            setUpdateForm(false)
+            message("Artpiece updated.", 4000)
+    
+        } catch (error) {
+            message("Could not update!");
+        };
 
     };
 
     const deleteArt = async () => {
-        const newCollection = await axios.delete(`http://localhost:5000/api/user/1?url=${art.url}`);
-        reload(newCollection.data);
-        message("Artpiece deleted.")
-        setPage("list")
+        try {
+            const newCollection = await axios.delete(`${api}user/collection?url=${art.url}`, {
+                headers: {
+                    "Authorization": localStorage.getItem("sessionId")
+                }
+            });
+            reload(newCollection.data);
+            message("Artpiece deleted.")
+            setPage("list")
+        } catch (error) {
+            message("Could not delete!");
+        };
     };
 
     useEffect(() => {

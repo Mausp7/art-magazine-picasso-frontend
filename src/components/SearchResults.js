@@ -3,18 +3,27 @@ import { Row, Spinner } from "react-bootstrap";
 /* import { Col } from "react-bootstrap"; */
 import { artworkImageUrl } from "./api";
 import Card from './Card';
-import http from "axios";
+import axios from "axios";
 import message from "./message"
 
-function SearchResults({ results, loading }) {
+function SearchResults({ results, loading, api }) {
 
 	const saveToCollection = async (artist, title, url) => {
-		await http.post('http://localhost:5000/api/user/1', {
-		  artist,
-		  title,
-		  url
-		})
-		message("Added to My Collection");
+		try {
+			await axios.post(`${api}user/collection`, {
+				artist,
+				title,
+				url
+			},
+			{
+				headers: {
+					"Authorization": localStorage.getItem("sessionId")
+                }
+            });
+			message("Added to My Collection");
+        } catch (error) {
+            message("Could not add!");
+        };
 	};
 
 	if (loading) {
@@ -26,7 +35,6 @@ function SearchResults({ results, loading }) {
 			</Row>
 		);
 	}
-	console.log(results);
 	if (!(results && results.length)) {
 		return null;
 	}

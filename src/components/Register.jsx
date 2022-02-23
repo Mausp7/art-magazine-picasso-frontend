@@ -4,7 +4,7 @@ import "./Register.css";
 import http from "axios";
 import message from "./message";
 
-const Register = () => {
+const Register = ({api}) => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -13,7 +13,7 @@ const Register = () => {
   const signUp = async () => {
     try {
       const response = await http.post(
-        "http://localhost:5000/api/user",
+        `${api}user`,
         {
           username: username,
           password: password,

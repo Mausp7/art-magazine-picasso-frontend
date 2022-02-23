@@ -4,7 +4,7 @@ import http from "axios";
 import message from "./message";
 
 
-const Login = () => {
+const Login = ( {api} ) => {
 
   const [authUsername, setAuthUsername] = useState("");
   const [authPassword, setAuthPassword] = useState("");
@@ -12,7 +12,7 @@ const Login = () => {
 
   const login = async () => {
     try {
-      const res = await http.get('http://localhost:5000/api/user', {
+      const res = await http.get(`${api}user`, {
         headers: {
         'Authorization': JSON.stringify({username: authUsername , password: authPassword })
         }
@@ -20,6 +20,7 @@ const Login = () => {
 
       localStorage.setItem("sessionId", res.data);
       navigate("/");
+      message("Logging in succesfull.")
 
     } catch (error) {
       message("Wrong username or password");

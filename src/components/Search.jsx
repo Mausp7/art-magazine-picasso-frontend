@@ -9,7 +9,7 @@ import SearchResults from "./SearchResults";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Search.css";
 
-function Search() {
+function Search( {api} ) {
 	const [results, setResults] = useState(null);
 	const [query, setQuery] = useState("");
 	const [loading, setLoading] = useState(false);
@@ -73,7 +73,7 @@ function Search() {
 			{error ? (
 				<p>Unable to retrieve results.</p>
 			) : (
-				<SearchResults results={results} loading={loading} />
+				<SearchResults results={results} loading={loading} api={api} />
 			)}
 		</div>
 	);
