@@ -73,7 +73,7 @@ const Register = ({api, url}) => {
             style={{borderBottomColor: getBottomBorderColor(password, reenterpass)}}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
+            placeholder="Enter a password (min 8 characters)"
           />
           <div className="alert-label">
             <label>Re-enter password</label>
@@ -84,7 +84,7 @@ const Register = ({api, url}) => {
             value={reenterpass}
             style={{borderBottomColor: getBottomBorderColor(reenterpass, password)}}
             onChange={(e) => setReenterpass(e.target.value)}
-            placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
+            placeholder="Re-enter your password"
           />
         </div>
         <button 
