@@ -11,7 +11,7 @@ function SearchResults({ results, loading, api }) {
 	const saveToCollection = async (artist, title, url) => {
 		try {
 			await axios.post(`${api}user/collection`, {
-				artist,
+				artist: artist.split(",")[0],
 				title,
 				url
 			},
