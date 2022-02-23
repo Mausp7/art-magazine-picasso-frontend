@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/art-magazine-picasso-frontend/static/css/main.26144ccc.css",
-    "main.js": "/art-magazine-picasso-frontend/static/js/main.e2f1cd5f.js",
+    "main.css": "/art-magazine-picasso-frontend/static/css/main.6d432ae7.css",
+    "main.js": "/art-magazine-picasso-frontend/static/js/main.f5098561.js",
     "static/media/picasso.jpg": "/art-magazine-picasso-frontend/static/media/picasso.c05bdfc0710b27707759.jpg",
     "static/media/steve-johnson-Xx_d26R37E4-unsplash.jpg": "/art-magazine-picasso-frontend/static/media/steve-johnson-Xx_d26R37E4-unsplash.6f617341b9521549269f.jpg",
     "index.html": "/art-magazine-picasso-frontend/index.html",
-    "main.26144ccc.css.map": "/art-magazine-picasso-frontend/static/css/main.26144ccc.css.map",
-    "main.e2f1cd5f.js.map": "/art-magazine-picasso-frontend/static/js/main.e2f1cd5f.js.map"
+    "main.6d432ae7.css.map": "/art-magazine-picasso-frontend/static/css/main.6d432ae7.css.map",
+    "main.f5098561.js.map": "/art-magazine-picasso-frontend/static/js/main.f5098561.js.map"
   },
   "entrypoints": [
-    "static/css/main.26144ccc.css",
-    "static/js/main.e2f1cd5f.js"
+    "static/css/main.6d432ae7.css",
+    "static/js/main.f5098561.js"
   ]
 }
