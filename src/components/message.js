@@ -1,8 +1,9 @@
-const message = (text, duration=3000) => {
+const message = (text, duration=4000) => {
 
-    const id = text.split(" ").join("-");
-    
-    document.getElementById("root").insertAdjacentHTML("beforeend", `<div id="${id}" onclick="document.getElementById('${id}').classList.add('message-hidden')" class="message message-hidden" >${text}</div>`);
+    const id = text.split(" ").join("-") + Math.random().toString();
+    if (!document.getElementById("message-container")) document.getElementById("root").insertAdjacentHTML("beforeend", `<div id="message-container" ></div>`);
+
+    document.getElementById("message-container").insertAdjacentHTML("afterbegin", `<div id="${id}" onclick="document.getElementById('${id}').classList.add('message-hidden')" class="message message-hidden" >${text}</div>`);
     const message = document.getElementById(id);
     
     setTimeout(() => {

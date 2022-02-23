@@ -26,7 +26,7 @@ const ArtDetails = ({collection, index, setPage, reload, api}) => {
             setArts(newCollection.data);
             reload(newCollection.data);
             setUpdateForm(false)
-            message("Artpiece updated.", 4000)
+            message("Artpiece updated.")
     
         } catch (error) {
             message("Could not update!");

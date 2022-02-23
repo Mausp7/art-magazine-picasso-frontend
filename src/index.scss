@@ -2,98 +2,101 @@ body,
 body *,
 body *::before,
 body *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	border: 0;
 
-  background: transparent;
+	background: transparent;
 
-  font-family: inherit;
-  text-decoration: none;
-  outline: none;
+	font-family: inherit;
+	text-decoration: none;
+	outline: none;
 }
 
 ol,
 ul,
 li {
-  display: block;
+	display: block;
 
-  list-style: none;
+	list-style: none;
 }
 
 table {
-  border-spacing: 0;
-  border-collapse: collapse;
+	border-spacing: 0;
+	border-collapse: collapse;
 }
 
 a img {
-  border: none;
+	border: none;
 }
 
 button,
 a {
-  cursor: pointer;
+	cursor: pointer;
 
-  color: inherit;
+	color: inherit;
 }
 
 textarea {
-  resize: none;
+	resize: none;
 }
 
 button,
 input,
 textarea,
 select {
-  appearance: none !important;
-  -webkit-appearance: none !important;
+	appearance: none !important;
+	-webkit-appearance: none !important;
 
-  border-radius: 0;
+	border-radius: 0;
 }
 
 body {
-  width: calc(100vw - 350px);
-  min-height: 100vh;
+	width: calc(100vw - 350px);
+	min-height: 100vh;
 
-  margin-left: 350px;
-  background-color: #f1f2f6;
+	margin-left: 350px;
+	background-color: #f1f2f6;
 
-  font-family: "Roboto", sans-serif;
+	font-family: "Roboto", sans-serif;
 
-  overflow-x: hidden;
-  overflow-y: scroll;
+	overflow-x: hidden;
+	overflow-y: scroll;
 
-  transition: width 500ms ease-in-out, margin-left 500ms ease-in-out;
+	transition: width 500ms ease-in-out, margin-left 500ms ease-in-out;
 }
 
 body.full-width {
-  width: 100vw;
+	width: 100vw;
 
-  margin-left: 0px;
+	margin-left: 0px;
 }
 
-.message {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
+#message-container {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	z-index: 100;
 
-  max-width: 300px;
+	.message {
+		max-width: 300px;
 
-  padding: 12px 30px;
-  border-radius: 15px;
-  background-color: rgb(220, 82, 82);
-  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.6);
+		margin-top: 10px;
+		padding: 12px 30px;
+		border-radius: 15px;
+		background-color: rgb(220, 82, 82);
+		box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.6);
 
-  font-size: 1.2em;
-  font-weight: 500;
-  color: #fff;
+		font-size: 1.2em;
+		font-weight: 500;
+		color: #fff;
 
-  transition: right 500ms ease-in-out;
+		transform: translateX(0px);
+		transition: transform 500ms ease-in-out;
+	}
 
-  z-index: 100;
-}
-
-.message.message-hidden {
-  right: -300px;
+	.message.message-hidden {
+		transform: translateX(300px);
+	}
 }
