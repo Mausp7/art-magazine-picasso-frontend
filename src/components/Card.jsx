@@ -23,7 +23,7 @@ const Card = ({
 			<h2 className='Card-heading'>{title}</h2>
 			<p className="extra-content">
 				{" "}
-				Artist: {artist_display} <br></br>
+				Artist: {artist_display.slice(0, 129)}{artist_display.length > 130 ? '...' : ''} <br></br>
 				Year: {date_display}
 			</p>
 		</div>
