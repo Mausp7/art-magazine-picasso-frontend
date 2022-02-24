@@ -50,7 +50,7 @@ const Register = ({api, url}) => {
   return (
     <div className='card'>
       <form>
-        <h1>Create an account</h1>
+        <h1 className="reg-title">Create an account</h1>
         <div className="username-box">
           <div className="alert-label">
             <label>Username</label>

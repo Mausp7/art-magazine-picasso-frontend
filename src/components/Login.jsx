@@ -33,14 +33,14 @@ const Login = ( {api, url, setUser} ) => {
   return (
     <div className="card">
       <form>
-          <h1>Login</h1>
+          <h1 className="log-title">Login</h1>
           <div className="username-box">
             <label>Username</label>
             <input
               type="text"
               value={authUsername}
               onChange={(e) => setAuthUsername(e.target.value)}
-              placeholder="Username"
+              placeholder="Enter your username"
             />
           </div>
           <div className="username-box">
@@ -49,7 +49,7 @@ const Login = ( {api, url, setUser} ) => {
               type="password"
               value={authPassword}
               onChange={(e) => setAuthPassword(e.target.value)}
-              placeholder="Password"
+              placeholder="Enter your password"
             />
           </div>
           <button

@@ -4,21 +4,23 @@
 
   width: 95%;
 
-  margin: 15px 20px;
+  margin: 15px 30px 15px 20px;
 
   padding: 20px;
 
-  /* border: 1px solid black; */
   background-color: white;
+  border: none;
   border-radius: 15px;
 
   box-shadow: 7px 10px 12px -5px rgba(0, 0, 0, 0.56);
 }
 
-h1 {
+.log-title,
+.reg-title {
+  margin: 10px 0 25px;
+
   font-size: 2.2em;
   font-weight: 400;
-  margin: 10px 0;
 }
 
 form {
@@ -81,8 +83,31 @@ input[type="password"] {
 }
 
 .reg:disabled {
-  background-color: #7d909b;
-  transform: none;
   box-shadow: none;
+  transform: none;
   color: #78828a;
+
+  background-color: #7d909b;
+}
+
+@media screen and (max-width: 800px) {
+  .log-title,
+  .reg-title {
+    font-size: 1.6em;
+  }
+
+  .password-box,
+  .username-box {
+    width: 80%;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    font-size: 0.8em;
+  }
+
+  .reg,
+  .login {
+    width: 120px;
+  }
 }
