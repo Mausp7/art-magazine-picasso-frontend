@@ -54,7 +54,7 @@ const Login = ( {api, url, setUser} ) => {
           </div>
           <button
             className="login"
-            onClick={(e) => login()}
+            onClick={(e) => login(e)}
           >Log in</button>
           <Link to={`${url}/register`}><button>I do not have an account</button></Link>
       </form>
