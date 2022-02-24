@@ -15,6 +15,12 @@
   box-shadow: 7px 10px 12px -5px rgba(0, 0, 0, 0.56);
 }
 
+h1 {
+  font-size: 2.2em;
+  font-weight: 400;
+  margin: 10px 0;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -33,7 +39,7 @@ label {
 
 label.alert-label {
   margin-left: 10px;
-  color: #ff0000;
+  color: #dc5252;
 }
 
 .alert-label {
@@ -48,14 +54,15 @@ input[type="password"] {
   width: 100%;
 }
 
-.reg {
+.reg,
+.login {
   display: flex;
   justify-content: center;
   align-items: center;
 
   width: 190px;
 
-  margin-top: 10px;
+  margin: 10px 0;
   padding: 10px;
 
   background-color: #458db6;
@@ -66,7 +73,8 @@ input[type="password"] {
   color: #fff;
 }
 
-.reg:hover {
+.reg:hover,
+.login:hover {
   box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.5);
   transform: scale(1.02);
   transition: transform 500ms ease-in-out;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Register.css";
+import "./Register-Login.css";
 import axios from "axios";
 import message from "./message";
 
@@ -11,7 +11,8 @@ const Register = ({api, url}) => {
   const [reenterpass, setReenterpass] = useState("")
   const navigate = useNavigate();
 
-  const signUp = async () => {
+  const signUp = async (e) => {
+    e.preventDefault();
     try {
       await axios.post(
         `${api}user`,
@@ -34,10 +35,10 @@ const Register = ({api, url}) => {
 
   const getBottomBorderColor = (pw, pw2) => {
     if (pw.length < 8 && pw.length > 0) {
-        return '#ff0000';
+        return '#dc5252';
     }
     else if (pw !== pw2 && pw.length !== 0 && pw2.length !== 0) {
-      return '#ff0000';
+      return '#dc5252';
     }
     else if (pw.length !== 0 && pw2.length !== 0 && pw === pw2) {
         return '#21b12d';
@@ -49,7 +50,7 @@ const Register = ({api, url}) => {
   return (
     <div className='card'>
       <form>
-        <h1>Register</h1>
+        <h1>Create an account</h1>
         <div className="username-box">
           <div className="alert-label">
             <label>Username</label>
@@ -60,7 +61,7 @@ const Register = ({api, url}) => {
             style={{ borderBottomColor: username.length >= 3 && "#21b12d" }}
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            placeholder="Enter a username of your choice (min 3 characters)"
+            placeholder="Enter a username (min 3 characters)"
             />
         </div>
         <div className="password-box">
@@ -89,9 +90,9 @@ const Register = ({api, url}) => {
         </div>
         <button 
           className="reg"
-          onClick={(e) => signUp()}
+          onClick={(e) => signUp(e)}
           disabled={username.length < 3 || password.length === 0 || password !== reenterpass || password.length < 8}
-        >Register</button>
+        >Sign up</button>
         <Link to="/login"><button>I already have an account</button></Link>
       </form>
     </div>

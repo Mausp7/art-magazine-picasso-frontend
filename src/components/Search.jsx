@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
-import { Container } from "react-bootstrap";
-/* import { Navbar } from "react-bootstrap";
- */
 import { search } from "./api";
 import SearchPic from "./SearchPic";
 import SearchResults from "./SearchResults";
+import Spinner from "./Spinner";
 
-import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css"; //DO NOT REMOVE
 import "./Search.css";
 
 function Search( {api} ) {
@@ -57,23 +55,12 @@ function Search( {api} ) {
 							query={query}
 							onChange={(e) => setQuery(e.target.value)}
 					/>
-				{/* <Navbar bg="dark" variant="dark">
-					<Navbar.Brand>Atrsy</Navbar.Brand>
-				</Navbar> */}
-				{/* <div className="painting-background Jumbotron">
-					<Container className="text-center">
-						<h1>Find Art You Love</h1>
-						<SearchPic
-							query={query}
-							onChange={(e) => setQuery(e.target.value)}
-						/>
-					</Container>
-				</div> */}
 			</header>
+			{loading && <Spinner />}
 			{error ? (
 				<p>Unable to retrieve results.</p>
 			) : (
-				<SearchResults results={results} loading={loading} api={api} />
+				<SearchResults results={results} api={api} />
 			)}
 		</div>
 	);
