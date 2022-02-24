@@ -20,7 +20,7 @@ const Card = ({
 
   const extraContent = (
 		<div className="extra-content">
-			<h2 className='Card-heading'>{title}</h2>
+			<h2 className='Card-heading'>{title.slice(0, 79)}{title.length > 80 ? '...' : ''}</h2>
 			<p className="extra-content">
 				{" "}
 				Artist: {artist_display.slice(0, 129)}{artist_display.length > 130 ? '...' : ''} <br></br>
