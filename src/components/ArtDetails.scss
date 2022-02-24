@@ -5,6 +5,13 @@
   min-height: 100vh;
   padding: 20px;
 
+  @media screen and (max-width: 840px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: scroll;
+  }
+
   .details {
     display: flex;
     flex-direction: column;
