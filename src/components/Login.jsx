@@ -56,7 +56,7 @@ const Login = ( {api, url, setUser} ) => {
             className="login"
             onClick={(e) => login()}
           >Log in</button>
-          <Link to={`${url}/register`}><button>Register</button></Link>
+          <Link to={`${url}/register`}><button>I do not have an account</button></Link>
       </form>
     </div>
   )
