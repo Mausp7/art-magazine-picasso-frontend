@@ -64,8 +64,14 @@ const ArtDetails = ({collection, index, setPage, reload, api, url}) => {
         backgroundImage: 'url(' + art.url + ')'
     };
 
-    const makeRandColor = () => {
-        let color = colors[Math.floor(Math.random() * colors.length)];
+    const chooseColor = (index) => {
+        let color;
+        if (!colors[index]) {
+            color = colors[Math.floor(Math.random() * colors.length)];
+            colors.push(color);
+        } else {
+            color = colors[index];
+        }
         return {backgroundColor: color}
     }
 
@@ -88,7 +94,7 @@ const ArtDetails = ({collection, index, setPage, reload, api, url}) => {
             <h3>{art.artist}</h3>
             <h2>{art.title}</h2>
             {input.description && <p>{input.description}</p>}
-            {input.tags && <ul className="details-tags-list">{input.tags.map((tag, index) => <li className="details-tag" key={index} style={makeRandColor()}>{tag}</li>)}</ul>}
+            {input.tags && <ul className="details-tags-list">{input.tags.map((tag, index) => <li className="details-tag" key={index} style={chooseColor(index)}>{tag}</li>)}</ul>}
             <div className="rating-stars">
                 <AiFillStar 
                     onClick={() => {setInput({...input, rating: 1}); setArt({...art, rating: 1})}} 
