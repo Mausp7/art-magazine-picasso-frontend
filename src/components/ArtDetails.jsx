@@ -125,9 +125,9 @@ const ArtDetails = ({collection, index, setPage, reload, api, url}) => {
                         onChange={(event)=> setInput({...input, description: event.target.value})} 
                     ></textarea>
                     <input 
-                        placeholder="Tags, divided by ', '"
-                        type="text" value={input.tags.join(", ")}
-                        onChange={(event)=> setInput({...input, tags: event.target.value.split(", ")})}
+                        placeholder='Tags, divided by ","'
+                        type="text" value={input.tags.join(",")}
+                        onChange={(event)=> setInput({...input, tags: event.target.value.split(",")})}
                     />
                     <div className="form-buttons">
                         <button className="nav-page" onClick={saveArt}>Save</button>
