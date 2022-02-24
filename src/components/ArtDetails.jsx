@@ -140,7 +140,7 @@ const ArtDetails = ({collection, index, setPage, reload, api, url}) => {
                 </button>
                 <button 
                     className="nav-page"
-                    onClick={() => setPage("list")} >List view
+                    onClick={() => setPage("list")} >Back
                 </button>
                 <button 
                     className="nav-page"
