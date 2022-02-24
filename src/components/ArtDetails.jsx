@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
-import {BiLeftArrowAlt, BiRightArrowAlt, BiArrowToLeft, BiArrowToRight} from "react-icons/bi";
+import {BiLeftArrowAlt, BiRightArrowAlt, BiArrowToLeft, BiArrowToRight, BiFullscreen, BiExitFullscreen} from "react-icons/bi";
 import axios from "axios";
 import "./ArtDetails.scss";
 import message from "./message";
@@ -13,6 +13,8 @@ const ArtDetails = ({collection, index, setPage, reload, api, url}) => {
     const [updateForm, setUpdateForm] = useState(false);
     const [input, setInput] = useState({description: art ? art.description : "", tags: art ? art.tags : [], rating: art ? art.rating : 0});
     const navigate = useNavigate();
+
+    const [imgFullscreen, setImgFullscreen] = useState(false);
 
     const saveArt = async () => {
         try {
@@ -57,9 +59,26 @@ const ArtDetails = ({collection, index, setPage, reload, api, url}) => {
         setArt(arts[artIndex]);
     }, [arts, artIndex]);
 
+    const fullscreenStyle = {
+        backgroundImage: 'url(' + art.url + ')'
+      };
+
     return (
     <div className="details-container">
         <div className="details">
+            <div className="details-image-container">
+                <BiFullscreen className="details-image-button" style={{color: "#dc5252", transform: "scale(2.5)", cursor: "pointer"}} onClick={() => {
+						  setImgFullscreen(!imgFullscreen);
+					  }}/>
+                <img className="details-image" src={art.url} alt={art.title} />
+            </div>
+            {imgFullscreen && 
+                <div className="fullscreen-img-container" style={fullscreenStyle}>
+                    <BiExitFullscreen className="fullscreen-img-button" style={{color: "#dc5252", transform: "scale(2.5)", cursor: "pointer"}} onClick={() => {
+						  setImgFullscreen(!imgFullscreen);
+					  }}/>
+                </div>
+                }
             <h3>{art.artist}</h3>
             <h2>{art.title}</h2>
             {input.description && <p>{input.description}</p>}
@@ -86,7 +105,6 @@ const ArtDetails = ({collection, index, setPage, reload, api, url}) => {
                     style={{color: art.rating > 4 ? "#ffc107" : "#999"}} 
                 />
             </div>
-            <img src={art.url} alt={art.title} />
             {!updateForm && <section className="update-form"><button className="nav-page" onClick={() => setUpdateForm(true)}>Edit</button></section>}
             {updateForm && <section className="update-form">
                     <textarea 
