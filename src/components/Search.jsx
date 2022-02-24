@@ -50,11 +50,10 @@ function Search( {api} ) {
 	return (
 		<div className="Search">
 			<header>
-					<h1>Find Art You Love</h1>
-					<SearchPic
-							query={query}
-							onChange={(e) => setQuery(e.target.value)}
-					/>
+				<SearchPic
+						query={query}
+						onChange={(e) => setQuery(e.target.value)}
+				/>
 			</header>
 			{loading && <Spinner />}
 			{error ? (

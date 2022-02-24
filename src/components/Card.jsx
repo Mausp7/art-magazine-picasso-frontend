@@ -24,7 +24,7 @@ const Card = ({
 			<p className="extra-content">
 				{" "}
 				Artist: {artist_display} <br></br>
-				Year:{date_display}, {place_of_origin}
+				Year: {date_display}
 			</p>
 		</div>
 	);

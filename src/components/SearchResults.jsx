@@ -5,12 +5,13 @@ import message from "./message"
 
 function SearchResults({ results, api }) {
 
-	const saveToCollection = async (artist, title, url) => {
+	const saveToCollection = async (artist, title, url, date) => {
 		try {
 			await axios.post(`${api}user/collection`, {
-				artist: artist.split(",")[0],
+				artist: artist.split(",")[0].split("/n")[0].split("(")[0],
 				title,
-				url
+				url,
+				date
 			},
 			{
 				headers: {
@@ -39,7 +40,7 @@ function SearchResults({ results, api }) {
 						artist_display={result.artist_display}
 						place_of_origin={result.place_of_origin}
 						source={artworkImageUrl(result.image_id, 250)}
-						addClickEvent={() => saveToCollection(result.artist_display, result.title, artworkImageUrl(result.image_id, 250))}
+						addClickEvent={() => saveToCollection(result.artist_display, result.title, artworkImageUrl(result.image_id, 250), result.date_display)}
 					/>
 				);
 			})}

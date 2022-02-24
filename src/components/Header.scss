@@ -1,138 +1,142 @@
 header[class^="header"] {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  z-index: 100;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	z-index: 100;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
 
-  height: calc(100vh - 30px);
-  min-height: 550px;
-  //changed the width from 320px and added max width
-  width: 100%;
-  max-width: 320px;
+	height: calc(100vh - 30px);
+	min-height: 550px;
+	//changed the width from 320px and added max width
+	width: 100%;
+	max-width: 320px;
 
-  margin: 15px;
-  padding: 20px;
-  border-radius: 15px;
-  background-color: #fff;
-  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.2);
+	margin: 15px;
+	padding: 20px;
+	border-radius: 15px;
+	background-color: #fff;
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.2);
 
-  button.header-toggle {
-    position: absolute;
-    right: 0px;
-    top: 2px;
+	button.header-toggle {
+		position: absolute;
+		right: 0px;
+		top: 2px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 50px;
+		height: 50px;
 
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.8);
+		border-radius: 15px;
+		background-color: rgba(255, 255, 255, 0.8);
 
-    color: rgba(50, 50, 50, 0.9);
+		color: rgba(50, 50, 50, 0.9);
 
-    transition: right 500ms ease-in-out;
-  }
+		transition: right 500ms ease-in-out;
+	}
 
-  .logo-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+	.logo-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
 
-    .logo-image {
-      width: 150px;
-      height: auto;
+		.logo-image {
+			width: 150px;
+			height: auto;
 
-      border-radius: 50%;
+			border-radius: 50%;
 
-      @media screen and (max-width: 800px) {
-        width: 80px;
-      }
-    }
+			@media screen and (max-width: 800px) {
+				width: 80px;
+			}
+		}
 
-    h1 {
-      font-size: 2.6em;
-      font-weight: 400;
+		h1 {
+			font-size: 2.6em;
+			font-weight: 400;
 
-      @media screen and (max-width: 800px) {
-        font-size: 2em;
-      }
-    }
+			@media screen and (max-width: 800px) {
+				font-size: 2em;
+			}
+		}
 
-    h2 {
-      font-size: 1.2em;
-      font-weight: 400;
+		h2 {
+			font-size: 1.2em;
+			font-weight: 400;
 
-      @media screen and (max-width: 800px) {
-        font-size: 1em;
-      }
-    }
-  }
+			@media screen and (max-width: 800px) {
+				font-size: 1em;
+			}
+		}
+	}
 
-  .nav-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	.nav-button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
-    width: 190px;
+		width: 190px;
 
-    margin-top: 10px;
-    padding: 10px;
+		margin-top: 10px;
+		padding: 10px;
 
-    background-color: #dc5252;
-    border-radius: 15px;
+		background-color: #dc5252;
+		border-radius: 15px;
 
-    font-size: 1.3em;
-    font-weight: 400;
-    color: #fff;
-  }
+		font-size: 1.3em;
+		font-weight: 400;
+		color: #fff;
+	}
 
-  .nav-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	.nav-link {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
-    width: 260px;
-    height: 60px;
+		width: 260px;
+		height: 60px;
 
-    margin-top: 20px;
-    background-color: #458db6;
-    border-radius: 15px;
+		margin-top: 20px;
+		background-color: #458db6;
+		border-radius: 15px;
 
-    font-size: 1.6em;
-    font-weight: 700;
-    color: #fff;
-  }
+		font-size: 1.6em;
+		font-weight: 700;
+		color: #fff;
+	}
 
-  button[class^="nav"] {
-    transition: transform 150ms ease-in-out, box-shadow 150ms ease-in-out;
-  }
+	.nav-link:hover {
+		text-decoration: none;
+	}
 
-  button[class^="nav"]:hover {
-    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.5);
-    transform: scale(1.02);
-  }
+	button[class^="nav"] {
+		transition: transform 150ms ease-in-out, box-shadow 150ms ease-in-out;
+	}
 
-  transition: transform 500ms ease-in-out;
+	button[class^="nav"]:hover {
+		box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.5);
+		transform: scale(1.02);
+	}
+
+	transition: transform 500ms ease-in-out;
 }
 
 header.header-off {
-  transform: translateX(-335px);
+	transform: translateX(-335px);
 
-  button.header-toggle {
-    right: -55px;
-  }
+	button.header-toggle {
+		right: -55px;
+	}
 
-  @media screen and (max-width: 800px) {
-    button.header-toggle {
-      right: calc(-100vw + 20px);
-    }
-  }
+	@media screen and (max-width: 800px) {
+		button.header-toggle {
+			right: calc(-100vw + 20px);
+		}
+	}
 }

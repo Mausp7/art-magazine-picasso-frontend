@@ -42,9 +42,8 @@ const Collection = ( {api, url} ) => {
             {page === "list" && 
                 <div className="Collection">
                     {loading && <Spinner />}
-                    <h1>Save Art You Love</h1>
                     {savedPics.length === 0 && <h2 style={{marginTop: "43vh", textAlign: "center"}} >There is nothing saved in your collection yet.</h2>}
-                    {savedPics.map((p, i) => (<Card key={i} title={p.title} source={p.url} artist_display={p.artist} addClickEvent={() => {setPage("single"); setArtIndex(i)}} />)
+                    {savedPics.map((p, i) => (<Card key={i} title={p.title} source={p.url} artist_display={p.artist} date_display={p.date} addClickEvent={() => {setPage("single"); setArtIndex(i)}} />)
                     )}
                 </div>}
         </>
