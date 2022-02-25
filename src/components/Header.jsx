@@ -24,7 +24,7 @@ const Header = ({user, setUser, url}) => {
                 <h2>Art Collector App</h2>
             </div>
             <nav> 
-                <Link to="/" ><button className="nav-link">Search</button></Link>
+                <Link to={`${url}/`} ><button className="nav-link">Search</button></Link>
                 {localStorage.getItem("sessionId") && <Link to={`${url}/collection`} ><button className="nav-link">My Collection</button></Link>}
             </nav>
             <div>
